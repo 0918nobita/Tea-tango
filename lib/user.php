@@ -25,6 +25,10 @@ class User {
 	}
 
 	public static function find($id) {
+		return self::findById($id);
+	}
+
+	public static function findById($id) {
 		$sql = 'select * from users where id = ? limit 1';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($id));
@@ -36,10 +40,6 @@ class User {
 			->setPassword($user['password'])
 			->setCreated($user['created'])
 			->setModified($user['modified']);
-	}
-
-	public static function findById($id) {
-		return self::find($id);
 	}
 
 	public function getId() {
