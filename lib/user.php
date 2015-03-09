@@ -18,6 +18,20 @@ class User {
 		$this->modified = $modified;
 	}
 
+	public static function find($id) {
+		$sql = 'select * from users where id = ? limit 1';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute(array($id));
+		$user = $sth->fetch();
+		return (new self)
+			->setId($user['id'])
+			->setName($user['name'])
+			->setEmail($user['email'])
+			->setPassword($user['password'])
+			->setCreated($user['created'])
+			->setModified($user['modified']);
+	}
+
 	public function getId() {
 		return $this->id;
 	}
