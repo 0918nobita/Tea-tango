@@ -43,6 +43,23 @@ class User {
 		return $user;
 	}
 
+	public static function findByName($name) {
+		$sql = 'select * from users where name = ?';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute($name);
+		$user = array();
+		while ($result = $sth->fetch()) {
+			$user[] = (new self)
+				->setId($result['id'])
+				->setName($result['name'])
+				->setEmail($result['email'])
+				->setPassword($result['password'])
+				->setCreated($result['created'])
+				->setModified($result['modified']);
+		}
+		return $user;
+	}
+
 	public static function findByEmail($email) {
 		$sql = 'select * from users where email = ? limit 1';
 		$sth = connectDb()->prepare($sql);
