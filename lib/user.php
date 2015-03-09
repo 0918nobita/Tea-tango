@@ -15,4 +15,29 @@ class User {
 		$this->created = $created;
 		$this->modified = $modified;
 	}
+
+	public function &setName($name) {
+		$this->name = $name;
+		return $this;
+	}
+
+	public function &setEmail($email) {
+		$this->email = $email;
+		return $this;
+	}
+
+	public function &setPassword($password) {
+		$this->password = $password;
+		return $this;
+	}
+
+	public function &setCreated($created) {
+		$this->created = $created;
+		return $this;
+	}
+
+	public function &setModified($modified) {
+		$this->modified = $modified;
+		return $this;
+	}
 }
