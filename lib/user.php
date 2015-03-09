@@ -32,6 +32,10 @@ class User {
 			->setModified($user['modified']);
 	}
 
+	public static function findById($id) {
+		return self::find($id);
+	}
+
 	public function getId() {
 		return $this->id;
 	}
