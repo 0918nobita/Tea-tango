@@ -2,18 +2,24 @@
 require_once dirname(__FILE__) . '/../functions.php';
 
 class User {
+	private $id = 0;
 	private $name = '';	
 	private $email = '';
 	private $password = '';
 	private $created = '';
 	private $modified = '';
 
-	public function __construct($name = '', $email = '', $password = '', $created = '', $modified = '') {
+	public function __construct($id = 0, $name = '', $email = '', $password = '', $created = '', $modified = '') {
+		$this->id = $id;
 		$this->name = $name;
 		$this->email = $email;
 		$this->password = $password;
 		$this->created = $created;
 		$this->modified = $modified;
+	}
+
+	public function getId() {
+		return $this->id;
 	}
 
 	public function getName() {
@@ -34,6 +40,11 @@ class User {
 
 	public function getModified() {
 		return $this->modified;
+	}
+
+	public function &setId($id) {
+		$this->id = $id;
+		return $this;
 	}
 
 	public function &setName($name) {
