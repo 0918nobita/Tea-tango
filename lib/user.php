@@ -16,6 +16,26 @@ class User {
 		$this->modified = $modified;
 	}
 
+	public function getName() {
+		return $this->name;
+	}
+
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function getPassword() {
+		return $this->password;
+	}
+
+	public function getCreated() {
+		return $this->created;
+	}
+
+	public function getModified() {
+		return $this->modified;
+	}
+
 	public function &setName($name) {
 		$this->name = $name;
 		return $this;
