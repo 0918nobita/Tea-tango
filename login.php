@@ -61,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 		exit;
 	}
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
 <title>ログイン┃Tea-tango</title>

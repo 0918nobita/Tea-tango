@@ -1,5 +1,7 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
+<?php
+session_start();
+
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
 <title>Tea-tangoとは┃Tea-tango</title>
