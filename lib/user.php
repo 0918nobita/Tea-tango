@@ -42,6 +42,19 @@ class User {
 			->setModified($user['modified']);
 	}
 
+	public static function findByEmail($email) {
+		$sql = 'select * from users where email = ? limit 1';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute(array($email));
+		return (new self)
+			->setId($user['id'])
+			->setName($user['name'])
+			->setEmail($user['email'])
+			->setPassword($user['password'])
+			->setCreated($user['created'])
+			->setModified($user['modified']);
+	}
+
 	public function getId() {
 		return $this->id;
 	}
