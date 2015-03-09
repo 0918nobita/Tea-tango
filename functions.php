@@ -1,12 +1,17 @@
 <?php
+require_once dirname(__FILE__) . '/confing.php';
 
 function connectDb() {
-	try{
-		return new PDO(DSN,DB_USER,DB_PASSWORD);
-	}catch(PDOException $e){
-		echo $e->getMessage();
-		exit();
+	static $dbh;
+	if (!isset($dbh)) {
+		try {
+			$dbh = new PDO(DSN, DB_USER, DB_PASSWORD);
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+			exit;
+		}
 	}
+	return $dbh;
 }
 
 function h($s) {
