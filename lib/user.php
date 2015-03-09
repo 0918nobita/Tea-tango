@@ -18,6 +18,12 @@ class User {
 		$this->modified = $modified;
 	}
 
+	public function save() {
+		$sql = 'insert into users values (?, ?, ?, ?, ?) on duplicate key update id = ?, name = ?, email = ?, created = ?, modified = ?';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute(array($this->id, $this->name, $this->email, $this->password, $this->created, $this->modified, $this->id, $this->name, $this->email, $this->password, $this->created, $this->modified));
+	}
+
 	public static function find($id) {
 		$sql = 'select * from users where id = ? limit 1';
 		$sth = connectDb()->prepare($sql);
