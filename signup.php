@@ -52,8 +52,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 	}
 }
 
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
 <title>新規ユーザー登録┃Tea-tango</title>

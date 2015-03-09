@@ -5,8 +5,7 @@ require_once('functions.php');
 
 session_start();
 
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
 <title>単語帳の新規作成に関する注意事項┃Tea-tango</title>

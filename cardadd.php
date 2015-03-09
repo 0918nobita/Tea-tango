@@ -43,8 +43,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 		header('Location:index.php');
 	}
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
 <title>単語帳の新規作成┃Tea-tango</title>
