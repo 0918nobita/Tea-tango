@@ -32,27 +32,28 @@ class User {
 		$sql = 'select * from users where id = ? limit 1';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($id));
-		$user = $sth->fetch();
+		$result = $sth->fetch();
 		return (new self)
-			->setId($user['id'])
-			->setName($user['name'])
-			->setEmail($user['email'])
-			->setPassword($user['password'])
-			->setCreated($user['created'])
-			->setModified($user['modified']);
+			->setId($result['id'])
+			->setName($result['name'])
+			->setEmail($result['email'])
+			->setPassword($result['password'])
+			->setCreated($result['created'])
+			->setModified($result['modified']);
 	}
 
 	public static function findByEmail($email) {
 		$sql = 'select * from users where email = ? limit 1';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($email));
+		$result = $sth->fetch();
 		return (new self)
-			->setId($user['id'])
-			->setName($user['name'])
-			->setEmail($user['email'])
-			->setPassword($user['password'])
-			->setCreated($user['created'])
-			->setModified($user['modified']);
+			->setId($result['id'])
+			->setName($result['name'])
+			->setEmail($result['email'])
+			->setPassword($result['password'])
+			->setCreated($result['created'])
+			->setModified($result['modified']);
 	}
 
 	public function getId() {
