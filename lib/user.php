@@ -7,4 +7,12 @@ class User {
 	private $password = '';
 	private $created = '';
 	private $modified = '';
+
+	public function __construct($name = '', $email = '', $password = '', $created = '', $modified = '') {
+		$this->name = $name;
+		$this->email = $email;
+		$this->password = $password;
+		$this->created = $created;
+		$this->modified = $modified;
+	}
 }
