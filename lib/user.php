@@ -33,13 +33,14 @@ class User {
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($id));
 		$result = $sth->fetch();
-		return (new self)
+		$user = (new self)
 			->setId($result['id'])
 			->setName($result['name'])
 			->setEmail($result['email'])
 			->setPassword($result['password'])
 			->setCreated($result['created'])
 			->setModified($result['modified']);
+		return $user;
 	}
 
 	public static function findByEmail($email) {
@@ -47,13 +48,14 @@ class User {
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($email));
 		$result = $sth->fetch();
-		return (new self)
+		$user = (new self)
 			->setId($result['id'])
 			->setName($result['name'])
 			->setEmail($result['email'])
 			->setPassword($result['password'])
 			->setCreated($result['created'])
 			->setModified($result['modified']);
+		return $user;
 	}
 
 	public function getId() {
