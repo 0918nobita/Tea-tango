@@ -7,6 +7,30 @@ class Card {
 	private $created = '';
 	private $modified = '';
 
+	public function getId() {
+		return $this->id;
+	}
+
+	public function getTitle() {
+		return $this->title;
+	}
+
+	public function getAuthorId() {
+		return $this->authorId;
+	}
+
+	public function getCategory() {
+		return $this->category;
+	}
+
+	public function getCreated() {
+		return $this->created;
+	}
+
+	public function getModified() {
+		return $this->modified;
+	}
+
 	public function &setId($id) {
 		$this->id = $id;
 		return $this;
