@@ -2,8 +2,38 @@
 class Card {
 	private $id = 0;
 	private $title = '';
-	private $author_id = 0;
+	private $authorId = 0;
 	private $category = 0;
 	private $created = '';
 	private $modified = '';
+
+	public function &setId($id) {
+		$this->id = $id;
+		return $this;
+	}
+
+	public function &setTitle($title) {
+		$this->title = $title;
+		return $this;
+	}
+
+	public function &setAuthorId($authorId) {
+		$this->authorId = $authorId;
+		return $this;
+	}
+
+	public function &setCategory($category) {
+		$this->category = $category;
+		return $this;
+	}
+
+	public function &setCreated($created) {
+		$this->created = $created;
+		return $this;
+	}
+
+	public function &setModified($modified) {
+		$this->modified = $modified;
+		return $this;
+	}
 }
