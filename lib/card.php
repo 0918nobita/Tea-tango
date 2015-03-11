@@ -7,6 +7,15 @@ class Card {
 	private $created = '';
 	private $modified = '';
 
+	public function __construct($id = 0, $title = '', $authorId = 0, $category = 0, $created = '', $modified = '') {
+		$this->id = $id;
+		$this->title = $title;
+		$this->authorId = $authorId;
+		$this->category = $category;
+		$this->created = $created;
+		$this->modified = $modified;
+	}
+
 	public function getId() {
 		return $this->id;
 	}
