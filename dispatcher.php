@@ -4,6 +4,10 @@ class Dispatcher {
 		self::dispatch($param, $name, 'GET');
 	}
 
+	public static function post($param, $name) {
+		self::dispatch($param, $name, 'POST')
+	}
+
 	public static function dispatch($param, $name, $method = 'GET') {
 		if ($param == self::get_param() && $method == $_SERVER['REQUEST_METHOD']) {
 			require_once $name;
