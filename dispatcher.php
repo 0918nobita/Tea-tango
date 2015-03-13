@@ -1,5 +1,9 @@
 <?php
 class Dispatcher {
+	public static function get($param, $name) {
+		self::dispatch($param, $name, 'GET');
+	}
+
 	public static function dispatch($param, $name, $method = 'GET') {
 		if ($param == self::get_param() && $method == $_SERVER['REQUEST_METHOD']) {
 			require_once $name;
