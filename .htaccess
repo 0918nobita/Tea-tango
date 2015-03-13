@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule .* index.php
+RewriteRule !^assets/.* index.php
