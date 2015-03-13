@@ -10,7 +10,7 @@ class Dispatcher {
 
 	public static function dispatch($param, $name, $method = 'GET') {
 		if ($param == self::get_param() && $method == $_SERVER['REQUEST_METHOD']) {
-			require_once $name;
+			require_once $name . (substr($name, -1, strlen('.php')) != '.php' ? '.php' : '');
 		}
 	}
 
