@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('HTTP/1.1 400 Bad Request');
 		exit;
 	} 
-	if (User::findByEmail($_POST['email'])->password == Password::hashPassword($_POST['password'])) {
+	$user = User::findByEmail($_POST['email'])
+	if ($user->password == Password::hashPassword($_POST['password'])) {
 		$_SESSION['me'] = $_POST['email'];
 		header('Location: ' . SITE_URL);
 		exit;
