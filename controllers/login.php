@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/../models/password.php';
 
 require_once __DIR__ . '/../config.php';
 
@@ -9,7 +10,6 @@ if (isset($_SESSION['me'])) {
 	exit;
 }
 
-if ($user = User::findByEmail($_POST['email']) == null) {
-	header('HTTP/1.0 404 Not Found');
-	exit;
+if (User::findByEmail($_POST['email'])->password == Password::hashPassword($_POST['password'])) {
+
 }
