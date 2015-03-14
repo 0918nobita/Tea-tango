@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../functions.php';
+
 class Card {
 	private $id = 0;
 	private $title = '';
