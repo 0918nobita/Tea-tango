@@ -14,6 +14,10 @@ function connectDb() {
 	return $dbh;
 }
 
+function get_pdo_instance() {
+	return connectDb();
+}
+
 function h($s) {
 	return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
