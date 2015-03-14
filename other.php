@@ -23,7 +23,7 @@ function &getSmartyInstance() {
 	static $smarty;
 	if (!isset($smarty)) {
 		$smarty = new Smarty;
-		$smarty->template_dir = 'views';
+		$smarty->template_dir = __DIR__ . '/views';
 	}
 	return $smarty;
 }
