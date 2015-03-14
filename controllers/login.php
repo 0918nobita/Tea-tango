@@ -10,11 +10,13 @@ if (isset($_SESSION['me'])) {
 	exit;
 }
 
-if (User::findByEmail($_POST['email'])->password == Password::hashPassword($_POST['password'])) {
-	$_SESSION['me'] = $_POST['email'];
-	header('Location: ' . SITE_URL);
-	exit;
-} else {
-	$smarty = getSmartyInstance();
-	$smarty->display('login.tpl');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (User::findByEmail($_POST['email'])->password == Password::hashPassword($_POST['password'])) {
+		$_SESSION['me'] = $_POST['email'];
+		header('Location: ' . SITE_URL);
+		exit;
+	}
 }
+
+$smarty = getSmartyInstance();
+$smarty->display('login.tpl');
