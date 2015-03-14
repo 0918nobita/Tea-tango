@@ -15,7 +15,7 @@
 		<form action="" method="post">
 			<p><input type="text" name="email" placeholder="メールアドレス" /> <?php echo h($err['email']); ?></p>
 			<p><input type="password" name="password" placeholder="パスワード" /> <?php echo h($err['password']); ?></p>
-			<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>" />
+			<input type="hidden" name="token" value="{$token}" />
 			<p><input type="submit" value="ログイン">　<a href="signup.php">新規登録はこちら！</a></p>
 		</form>
 		<p>バグ等を発見した場合はTwitter <a href="http://twitter.com/0918nobita" style="text-decoration:none;">@0918nobita</a> までご連絡ください。</p>
