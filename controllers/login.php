@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../models/user.php';
 require_once __DIR__ . '/../models/password.php';
 require_once __DIR__ . '/../models/token.php';
-require_once __DIR__ . '/../functions.php';
+require_once __DIR__ . '/../other.php';
 require_once __DIR__ . '/../config.php';
 
 if (isset($_SESSION['me'])) {
