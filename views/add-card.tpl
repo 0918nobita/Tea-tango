@@ -4,7 +4,7 @@
 <title>単語帳の新規作成┃Tea-tango</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<link rel="stylesheet" type="text/css" href="eitango.css">
+<link rel="stylesheet" type="text/css" href="assets/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script language="javascript" src="assets/header.js"></script>
 </head>
