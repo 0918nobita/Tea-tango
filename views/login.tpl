@@ -12,9 +12,9 @@
 	<script>header();</script>
 	<div class="main">
 		<h2>ログイン</h2>
-		<form action="" method="POST">
-			<p>メールアドレス：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
-			<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
+		<form action="" method="post">
+			<p><input type="text" name="email" placeholder="メールアドレス" /> <?php echo h($err['email']); ?></p>
+			<p><input type="password" name="password" placeholder="パスワード" /> <?php echo h($err['password']); ?></p>
 			<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>" />
 			<p><input type="submit" value="ログイン">　<a href="signup.php">新規登録はこちら！</a></p>
 		</form>
