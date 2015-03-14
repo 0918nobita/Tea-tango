@@ -15,29 +15,29 @@ function connectDb() {
 }
 
 function h($s) {
-	return htmlspecialchars($s,ENT_QUOTES,"UTF-8");
+	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
 }
 
 function setToken() {
-	$token = sha1(uniqid(mt_rand(),true));
+	$token = sha1(uniqid(mt_rand(), true));
 	$_SESSION['token'] = $token;
 }
 
 function checkToken() {
-	if (empty($_SESSION['token'])||($_SESSION['token']!=$_POST['token'])) {
+	if (empty($_SESSION['token']) || $_SESSION['token']!=$_POST['token']) {
 		echo '不正なPOSTが行われました。';
-		exit();
+		exit;
 	}
 }
 
-function emailExists($email,$dbh) {
+function emailExists($email, $dbh) {
 	$sql = "select * from users where email = :email limit 1";
 	$stmt = $dbh->prepare($sql);
-	$stmt->execute(array(":email"=>$email));
+	$stmt->execute(array(":email" => $email));
 	$user = $stmt->fetch();
 	return $user ? true : false;
 }
 
 function getSha1Password($s) {
-	return (sha1(PASSWORD_KEY.$s));
+	return sha1(PASSWORD_KEY . $s);
 }
