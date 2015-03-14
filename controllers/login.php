@@ -12,6 +12,8 @@ if (Login::isLogin()) {
 	exit;
 }
 
+$smarty = getSmartyInstance();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!Token::check($_POST['token'])) {
 		header('HTTP/1.1 400 Bad Request');
@@ -22,9 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		Login::setMe($user->id);
 		header('Location: ' . SITE_URL);
 		exit;
+	} else {
+		$smarty->assign('err', 'メールアドレスまたはパスワードが正しくありません');
 	}
 }
 
-$smarty = getSmartyInstance();
 $smarty->assign('token', Token::create());
 $smarty->display('login.tpl');

@@ -12,6 +12,9 @@
 	<script>header();</script>
 	<div class="main">
 		<h2>ログイン</h2>
+		{if isset($err)}
+		<p>{$err}</p>
+		{/if}
 		<form action="" method="post">
 			<p><input type="text" name="email" placeholder="メールアドレス" /></p>
 			<p><input type="password" name="password" placeholder="パスワード" /></p>
