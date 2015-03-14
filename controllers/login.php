@@ -11,5 +11,7 @@ if (isset($_SESSION['me'])) {
 }
 
 if (User::findByEmail($_POST['email'])->password == Password::hashPassword($_POST['password'])) {
-
+	$_SESSION['me'] = $_POST['email'];
+	header('Location: ' . SITE_URL);
+	exit;
 }
