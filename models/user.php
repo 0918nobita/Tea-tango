@@ -9,8 +9,6 @@ class User {
 	private $created = '';
 	private $modified = '';
 
-	const ME = 'me';
-
 	public function __construct($id = 0, $name = '', $email = '', $password = '', $created = '', $modified = '') {
 		$this->id = $id;
 		$this->name = $name;
