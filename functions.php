@@ -3,10 +3,10 @@ require_once __DIR__ . '/confing.php';
 require_once __DIR__ . '/Smarty-3.1.21/libs/Smarty.class.php';
 
 function connectDb() {
-	return get_pdo_instance();
+	return getPdoInstance();
 }
 
-function &get_pdo_instance() {
+function &getPdoInstance() {
 	static $dbh;
 	if (!isset($dbh)) {
 		try {
@@ -19,7 +19,7 @@ function &get_pdo_instance() {
 	return $dbh;
 }
 
-function &get_smarty_instance() {
+function &getSmartyInstance() {
 	static $smarty;
 	if (!isset($smarty)) {
 		$smarty = new Smarty;
