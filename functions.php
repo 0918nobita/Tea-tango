@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/confing.php';
+require_once __DIR__ . '/confing.php';
 
 function connectDb() {
 	static $dbh;
