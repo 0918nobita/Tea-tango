@@ -1,9 +1,11 @@
 <?php
 class Token {
 	const NAME = "\0__TOKENS__\0";
+	const MAX = 10;
 
 	public static function create() {
 		self::init();
+		array_slice($_SESSION[self::NAME], 0, MAX - 1);
 		return $_SESSION[self::SESSION_VAR_NAME][] = sha1(uniqid(mt_rand(), true));
 	}
 
