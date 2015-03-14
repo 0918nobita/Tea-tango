@@ -2,6 +2,10 @@
 require_once __DIR__ . '/confing.php';
 
 function connectDb() {
+	return get_pdo_instance();
+}
+
+function &get_pdo_instance() {
 	static $dbh;
 	if (!isset($dbh)) {
 		try {
@@ -12,10 +16,6 @@ function connectDb() {
 		}
 	}
 	return $dbh;
-}
-
-function get_pdo_instance() {
-	return connectDb();
 }
 
 function h($s) {
