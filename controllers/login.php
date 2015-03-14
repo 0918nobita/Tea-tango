@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../models/user.php';
 require_once __DIR__ . '/../models/password.php';
+require_once __DIR__ . '/../models/token.php';
 require_once __DIR__ . '/../functions.php';
 require_once __DIR__ . '/../config.php';
 
@@ -19,4 +20,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $smarty = getSmartyInstance();
+$smarty->assign('token', Token::create());
 $smarty->display('login.tpl');
