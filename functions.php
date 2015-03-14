@@ -24,7 +24,7 @@ function setToken() {
 }
 
 function checkToken() {
-	if (empty($_SESSION['token']) || $_SESSION['token']!=$_POST['token']) {
+	if (empty($_SESSION['token']) || $_SESSION['token'] != $_POST['token']) {
 		echo '不正なPOSTが行われました。';
 		exit;
 	}
