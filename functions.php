@@ -30,9 +30,9 @@ function checkToken() {
 	}
 }
 
-function emailExists($email, $dbh) {
+function emailExists($email) {
 	$sql = "select * from users where email = :email limit 1";
-	$stmt = $dbh->prepare($sql);
+	$stmt = connectDb()->prepare($sql);
 	$stmt->execute(array(":email" => $email));
 	$user = $stmt->fetch();
 	return $user ? true : false;
