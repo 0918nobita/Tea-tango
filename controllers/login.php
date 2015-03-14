@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/../models/login.php';
 require_once __DIR__ . '/../models/password.php';
 require_once __DIR__ . '/../models/token.php';
 require_once __DIR__ . '/../other.php';
