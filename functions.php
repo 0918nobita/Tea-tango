@@ -15,7 +15,7 @@ function connectDb() {
 }
 
 function h($s) {
-	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+	return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 
 function setToken() {
@@ -31,9 +31,9 @@ function checkToken() {
 }
 
 function emailExists($email) {
-	$sql = "select * from users where email = :email limit 1";
+	$sql = 'select * from users where email = :email limit 1';
 	$stmt = connectDb()->prepare($sql);
-	$stmt->execute(array(":email" => $email));
+	$stmt->execute(array(':email' => $email));
 	$user = $stmt->fetch();
 	return $user ? true : false;
 }
