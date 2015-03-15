@@ -11,7 +11,7 @@
 <body>
 	<script>header();</script>
 	<div class="main">
-		<p>Logged in as <?php echo h($me['name']); ?> <a href="logout.php">[ログアウト]</a></p>
+		<p>Logged in as {$me->name} <a href="logout.php">[ログアウト]</a></p>
 		<h2>単語帳一覧</h2>
 		<p class="card"><a href="c2.php" style="text-decoration:none;">ユメタン561～590</a></p>
 		<p class="card"><a href="c1.php" style="text-decoration:none;">ユメタン711～740</a></p>
