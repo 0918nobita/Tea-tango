@@ -13,6 +13,7 @@ class Dispatcher {
 			require_once $name . (substr($name, -1, strlen('.php')) != '.php' ? '.php' : '');
 			return true;
 		}
+		return false;
 	}
 
 	public static function get_param() {
