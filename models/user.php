@@ -32,6 +32,9 @@ class User {
 		$sql = 'select * from users where id = ? limit 1';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($id));
+		if (!$sth->rowCount()) {
+			return null;
+		}
 		$result = $sth->fetch();
 		$user = (new self)
 			->setId($result['id'])
@@ -47,6 +50,9 @@ class User {
 		$sql = 'select * from users where name = ?';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute($name);
+		if (!$sth->rowCount()) {
+			return  null;
+		}
 		$user = array();
 		while ($result = $sth->fetch()) {
 			$user[] = (new self)
@@ -64,6 +70,9 @@ class User {
 		$sql = 'select * from users where email = ? limit 1';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($email));
+		if (!$sth->rowCount()) {
+			return null;
+		}
 		$result = $sth->fetch();
 		$user = (new self)
 			->setId($result['id'])
