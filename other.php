@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/confing.php';
+require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/Smarty-3.1.21/libs/Smarty.class.php';
 
 function connectDb() {
