@@ -6,21 +6,21 @@ class Token {
 	public static function create() {
 		self::init();
 		array_slice($_SESSION[self::TOKEN], 0, MAX - 1);
-		return $_SESSION[self::SESSION_VAR_TOKEN][] = sha1(uniqid(mt_rand(), true));
+		return $_SESSION[self::TOKEN][] = sha1(uniqid(mt_rand(), true));
 	}
 
 	public static function check($token) {
 		self::init();
-		if ($key = array_search($token, $_SESSION[self::SESSION_VAR_TOKEN]) != false) {
-			unset($_SESSION[self::SESSION_VAR_TOKEN][$key]);
+		if ($key = array_search($token, $_SESSION[self::TOKEN]) != false) {
+			unset($_SESSION[self::TOKEN][$key]);
 			return true;
 		}
 		return false;
 	}
 
 	private static function init() {
-		if (!isset($_SESSION[self::SESSION_VAR_TOKEN]) || !is_array($_SESSION[self::SESSION_VAR_TOKEN])) {
-			$_SESSION[self::SESSION_VAR_TOKEN] = array();
+		if (!isset($_SESSION[self::TOKEN]) || !is_array($_SESSION[self::TOKEN])) {
+			$_SESSION[self::TOKEN] = array();
 		}
 	}
 }
