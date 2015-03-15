@@ -5,7 +5,7 @@ class Dispatcher {
 	}
 
 	public static function post($param, $name) {
-		self::dispatch($param, $name, 'POST')
+		self::dispatch($param, $name, 'POST');
 	}
 
 	public static function dispatch($param, $name, $method = 'GET') {
