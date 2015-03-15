@@ -9,5 +9,5 @@ if (!Login::isLogin()) {
 }
 
 $smarty = getSmartyInstance();
-$smarty->assign('me', User::findById($_SESSION['me']));
+$smarty->assign('me', User::findById(Login::getMe()));
 $smarty->display('index.tpl');
