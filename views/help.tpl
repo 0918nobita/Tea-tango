@@ -43,7 +43,7 @@ $(function(){
         <h3 name="q2" id="q2">Tea-tangoは登録制？</h3>
         <p>　いいえ、登録制ではありません。</p>
         <h3 name="q3" id="q3">Tea-tangoはだれが開発してる？</h3>
-        <p>0918nobitaが開発しています。Twitter → <a href="https://twitter.com/0918nobita" target="_blank">こちら</a></p>
+        <p><a href="https://github.com">GitHub</a> でソースコードが公開されています。誰でも開発に参加できます</p>
         <h3 name="q4" id="q4">「このページでこれ以上ダイアログボックスを生成しない」をタッチしてしまいました。</h3>
         <p>ブラウザを再起動してください。(スマートフォンの場合、マルチタスキングからブラウザを削除して動作を一度停止させ、もう一度ホーム画面から起動する操作にあたります。)</p>
     </div>
