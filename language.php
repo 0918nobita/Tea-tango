@@ -3,6 +3,9 @@
  * Get word
  * 
  * @param string $word word name
+ * @param string $lang lang package name
+ * 
+ * @return string word
  */
 function getWord($word, $lang = '') {
 	if ($lang == '') {
