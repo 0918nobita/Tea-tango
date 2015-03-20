@@ -1,0 +1,20 @@
+{
+	"my_word_card": "My word card", 
+	"add_word_card": "Add word card", 
+	"add_question": "Add question", 
+	"performance": "Performance", 
+	"notice": "Notice", 
+	"help": "Help", 
+	"create_account": "Create account", 
+	"login": "Login", 
+	"logout": "Logout", 
+	"please_input_your_name": "Please input your name", 
+	"please_input_email_address": "Please input your email address", 
+	"please_input_password": "Please input password", 
+	"invalid_email_address_format": "Invalid email address format", 
+	"this_email_address_is_already_registered": "This email addressnis already registered", 
+	"name": "Name", 
+	"email_address": "Email address", 
+	"password": "Password", 
+	"back": "Back"
+}
