@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 <form action="" method="POST">
 <p><?php echo lang('お名前',$_SESSION['lang']); ?>：<input type="text" name="name" value="">　<?php echo h($err['name']); ?></p>
 <p><?php echo lang('メールアドレス',$_SESSION['lang']); ?>：<input type="text" name="email" value=""> <?php echo h($err['email']); ?></p>
-<p><?php echo lang('パスワード',$_SESSION['lang']); ?>：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
+<p><?php echo lang('パスワードを入力',$_SESSION['lang']); ?>：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
 <input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
 <p><?php echo '<input type="submit" value="'.lang('新規登録！',$_SESSION['lang']).'">　<a href="login.php?lang='.$_SESSION['lang'].'">'.lang('ログイン',$_SESSION['lang']).'</a></p>';?>
 </form>

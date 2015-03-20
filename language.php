@@ -18,7 +18,8 @@ $_SESSION['languagePackEn'] = array(
 	'パスワードを入力してください'=>'Please input your password.',
 	'メールアドレス'=>'Your e-mail',
 	'お名前'=>'Your name',
-	'パスワード'=>'Create a password',
+	'パスワード'=>'Password',
+	'パスワードを入力'=>'Create a password',
 	'戻る'=>'Back',
 	'新規登録！'=>'Create account'
 
