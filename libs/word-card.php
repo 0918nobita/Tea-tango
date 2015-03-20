@@ -19,6 +19,10 @@ class WordCard {
 		return $this->authorId;
 	}
 
+	public function getCategory() {
+		return $this->category;
+	}
+
 	public function getDescription() {
 		return $this->description;
 	}
