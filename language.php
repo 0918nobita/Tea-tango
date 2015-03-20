@@ -34,3 +34,14 @@ function lang($a,$b) {
 		return $a;
 	}
 }
+
+/**
+ * Set lang package
+ * 
+ * @param string $lang lang name
+ */
+function setLang($lang) {
+	if (is_file(buildLangFileName($lang))) {
+		$_SESSION['lang'] = $lang;
+	}
+}
