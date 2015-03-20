@@ -1,16 +1,4 @@
 <?php 
-function lang($a,$b) {
-	if ($b=='en') {
-		if (!isset($_SESSION['languagePackEn'][$a])) {
-			return $a;
-		} else {
-			return $_SESSION['languagePackEn'][$a]; 
-		}
-	} else {
-		return $a;
-	}
-}
-
 /**
  * Set lang package
  * 
