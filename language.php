@@ -1,5 +1,17 @@
 <?php 
 /**
+ * Get word
+ * 
+ * @param string $word word name
+ */
+function getWord($word, $lang = '') {
+	if ($lang == '') {
+		$lang = $_SESSION['lang'];
+	}
+	return json_decode(file_get_contents(buildLangFileName($lang)))[$word];
+}
+
+/**
  * Set lang package
  * 
  * @param string $lang lang package name
