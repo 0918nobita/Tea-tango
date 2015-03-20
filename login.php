@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('header.php');
+require_once __DIR__ . '/header.php';
 
 if (!empty($_SESSION['me'])) {
 	header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
