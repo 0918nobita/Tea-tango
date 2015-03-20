@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title><?php echo lang('ログイン',$_SESSION['lang']).'┃Tea-tango'; ?></title>
+<title><?php echo lang('ログイン',$_SESSION['lang']).' | Tea-tango'; ?></title>
 <meta charset="UTF-8">
 </head>
 <body>

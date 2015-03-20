@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
-<title><?php echo lang('新規ユーザー登録',$_SESSION['lang']); ?>┃Tea-tango</title>
+<title><?php echo lang('新規ユーザー登録',$_SESSION['lang']); ?> | Tea-tango</title>
 <meta charset="UTF-8">
 </head>
 <body>
