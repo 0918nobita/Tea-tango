@@ -14,4 +14,4 @@ if (!isset($_COOKIE[session_name()])) {
 
 session_destroy();
 
-header('Location:login.php');
+header('Location:login.php?lang='.$_SESSION['lang']);
