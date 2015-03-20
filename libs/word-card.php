@@ -7,6 +7,26 @@ class WordCard {
 	private $category = 0;
 	private $created = '';
 
+	public function getId() {
+		return $this->id;
+	}
+
+	public function getName() {
+		return $this->name;
+	}
+
+	public function getAuthorId() {
+		return $this->authorId;
+	}
+
+	public function getDescription() {
+		return $this->description;
+	}
+
+	public function getCreated() {
+		return $this->created;
+	}
+
 	public function &setId($id) {
 		$this->id = $id;
 		return $this;
