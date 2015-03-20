@@ -1,9 +1,6 @@
 <?php
-
-require_once('config.php');
-require_once('functions.php');
-
 session_start();
+require_once('header.php');
 
 if ($_SERVER['REQUEST_METHOD']!='POST') {
 	//CSRF対策
@@ -17,22 +14,22 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 	$err = array();
 	//名前が空？
 	if ($name=='') {
-		$err['name'] = 'お名前を入力してください';
+		$err['name'] = lang('お名前を入力してください',$lang);
 	}
 	//メールアドレスが正しい？
 	if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-		$err['email'] = 'メールアドレスの形式が正しくないです。';
+		$err['email'] = lang('メールアドレスの形式が正しくありません',$lang);
 	}
 	if (emailExists($email,$dbh)) {
-		$err['email'] = 'このメールアドレスは既に登録されています。';
+		$err['email'] = lang('このメールアドレスは既に登録されています',$lang);
 	}
 	//メールアドレスが空？
 	if ($email=='') {
-		$err['email'] = 'メールアドレスを入力してください';
+		$err['email'] = lang('メールアドレスを入力してください',$lang);
 	}
 	//パスワードが空？
 	if ($password=='') {
-		$err['password'] = 'パスワードを入力してください';
+		$err['password'] = lang('パスワードを入力してください',$lang);
 	}
 
 	if (empty($err)) {
@@ -48,31 +45,29 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 			":password" => getSha1Password($password)
 		);
 		$stmt->execute($params);
-		header('Location:login.php');
+		header('Location:login.php?lang='.$_SESSION['lang']);
 	}
 }
 
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>新規ユーザー登録┃Tea-tango</title>
+<title><?php echo lang('新規ユーザー登録',$_SESSION['lang']); ?>┃Tea-tango</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<link rel="stylesheet" type="text/css" href="eitango.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script language="javascript" src="eitango_header.js"></script>
 </head>
 <body>
-<script>header();</script>
-<div class="main">
-<h2>新規ユーザー登録</h2>
+<div id="main">
+<div id="page-title">
+<div id="page-title-text"><p><?php echo lang('新規ユーザー登録',$_SESSION['lang']);?></p></div>
+</div>
 <form action="" method="POST">
-<p>お名前：<input type="text" name="name" value="">　<?php echo h($err['name']); ?></p>
-<p>メールアドレス：<input type="text" name="email" value=""> <?php echo h($err['email']); ?></p>
-<p>パスワード：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
-<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>"
-<p><input type="submit" value="新規登録！">　<a href="index.php">戻る</a></p>
+<p><?php echo lang('お名前',$_SESSION['lang']); ?>：<input type="text" name="name" value="">　<?php echo h($err['name']); ?></p>
+<p><?php echo lang('メールアドレス',$_SESSION['lang']); ?>：<input type="text" name="email" value=""> <?php echo h($err['email']); ?></p>
+<p><?php echo lang('パスワード',$_SESSION['lang']); ?>：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
+<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
+<p><?php echo '<input type="submit" value="'.lang('新規登録！',$_SESSION['lang']).'">　<a href="login.php?lang='.$_SESSION['lang'].'">'.lang('ログイン',$_SESSION['lang']).'</a></p>';?>
 </form>
+<p><a href="signup.php?lang=ja">Japanese</a>　<a href="signup.php?lang=en">English</a></p>
 <p>バグ等を発見した場合はTwitter <a href="http://twitter.com/0918nobita" style="text-decoration:none;">@0918nobita</a> までご連絡ください。</p>
 </div>
 </body>
