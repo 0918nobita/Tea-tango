@@ -52,20 +52,20 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
-<title><?php echo lang('新規ユーザー登録',$_SESSION['lang']); ?>┃Tea-tango</title>
+<title><?php echo lang('create_account'); ?>┃Tea-tango</title>
 <meta charset="UTF-8">
 </head>
 <body>
 <div id="main">
 <div id="page-title">
-<div id="page-title-text"><p><?php echo lang('新規ユーザー登録',$_SESSION['lang']);?></p></div>
+<div id="page-title-text"><p><?php echo lang('create_account');?></p></div>
 </div>
 <form action="" method="POST">
-<p><?php echo lang('お名前',$_SESSION['lang']); ?>：<input type="text" name="name" value="">　<?php echo h($err['name']); ?></p>
-<p><?php echo lang('メールアドレス',$_SESSION['lang']); ?>：<input type="text" name="email" value=""> <?php echo h($err['email']); ?></p>
-<p><?php echo lang('パスワード',$_SESSION['lang']); ?>：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
+<p><?php echo lang('name'); ?>：<input type="text" name="name" value="">　<?php echo h($err['name']); ?></p>
+<p><?php echo lang('email_address'); ?>：<input type="text" name="email" value=""> <?php echo h($err['email']); ?></p>
+<p><?php echo lang('password'); ?>：<input type="password" name="password" value="">　<?php echo h($err['password']); ?></p>
 <input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
-<p><?php echo '<input type="submit" value="'.lang('新規登録！',$_SESSION['lang']).'">　<a href="login.php?lang='.$_SESSION['lang'].'">'.lang('ログイン',$_SESSION['lang']).'</a></p>';?>
+<p><?php echo '<input type="submit" value="'.lang('create_account').'">　<a href="login.php?lang='.$_SESSION['lang'].'">'.lang('login').'</a></p>';?>
 </form>
 <p><a href="signup.php?lang=ja">Japanese</a>　<a href="signup.php?lang=en">English</a></p>
 <p>バグ等を発見した場合はTwitter <a href="http://twitter.com/0918nobita" style="text-decoration:none;">@0918nobita</a> までご連絡ください。</p>
