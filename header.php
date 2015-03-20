@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="black_filter"></div>
-<div id="header_back"><div id="header_text"><font size="7"><a href="index.php" style="text-decoration:none;">Tea-tango</a></font></div></div>
+<div id="header_back"><div id="header_text"><font size="7"><?php echo '<a href="index.php'.$_SESSION['lang'].'" style="text-decoration:none;">'; ?>Tea-tango</a></font></div></div>
 <?php
 require_once('config.php');
 require_once('functions.php');
@@ -20,13 +20,13 @@ if (empty($_SESSION['me'])) {
 	echo '
 	<div id="side_menu">
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/login/" style="text-decoration:none;">ログイン</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?=login&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('ログイン',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/signup/" style="text-decoration:none;">新規登録</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=signup&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('新規登録',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=help" style="text-decoration:none;">ヘルプ</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=help&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('ヘルプ',$lang).'</a></p>
 		</div>
 	</div>
 	<div id="side_menu_open_btn">
@@ -38,28 +38,28 @@ if (!empty($_SESSION['me'])) {
 	echo '
 	<div id="side_menu">
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=profile&id='.$me['id'].'" style="text-decoration:none;">'.$me['name'].'</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=profile&id='.$me['id'].'&'.$_SESSION['lang'].'" style="text-decoration:none;">'.$me['name'].'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=my_wordcard" style="text-decoration:none;">マイ単語帳</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=my_wordcard&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('マイ単語帳',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=wordcard_add" style="text-decoration:none;">単語帳追加</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=wordcard_add&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('単語帳追加',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=card_add" style="text-decoration:none;">問題追加</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=card_add&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('問題追加',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=performance" style="text-decoration:none;">成績</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=performance&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('成績',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=notice" style="text-decoration:none;">お知らせ</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=notice&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('お知らせ',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/?p=help" style="text-decoration:none;">ヘルプ</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=help&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('ヘルプ',$lang).'</a></p>
 		</div>
 		<div class="item">
-			<p><a href="http://ttan5.zz.vc/test2/logout/" style="text-decoration:none;">ログアウト</a></p>
+			<p><a href="http://ttan5.zz.vc/test2/?p=logout&'.$_SESSION['lang'].'" style="text-decoration:none;">'.lang('ログアウト',$lang).'</a></p>
 		</div>
 	</div>
 	<div id="side_menu_open_btn">

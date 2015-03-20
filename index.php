@@ -2,6 +2,14 @@
 session_start();
 require_once('config.php');
 require_once('functions.php');
+if ($_GET['lang']=='en') {
+	$lang = 'en';
+	$_SESSION['lang'] = 'lang=en';
+} else {
+	$lang = 'ja';
+	$_SESSION['lang'] = 'lang=ja';
+}
+require_once('language.php');
 require_once('header.php');
 $dbh = connectDb();
 if (empty($_SESSION['me'])) {
@@ -31,7 +39,7 @@ if ($_GET['p']=='profile') {
 	}
 	if ($_GET['id']=='') {
 		$smarty->assign('error_number','00001');
-		$smarty->assign('error_description','ユーザー情報を読み込むことができませんでした。');
+		$smarty->assign('error_description',lang('ユーザー情報を読み込むことができませんでした。',$lang));
 		$smarty->display('error.tpl');
 		exit();
 	}
