@@ -84,7 +84,10 @@ $('#page-title-text').animate({paddingLeft:"4em",opacity:1},'slow');
 });
 side_menu_open_btn.click(function(){
 	if ($a == 0) {
-		side_menu.show().css('z-index','4').css('box-shadow','10px 0px rgba(0,0,0,0,4)');
+		side_menu
+			.show()
+			.css('z-index', '4')
+			.css('box-shadow', '10px 0px rgba(0,0,0,0,4)');
 		black_filter.css('display','inline');
 		main.css('pointer-events','none');
 		$a = 1;
