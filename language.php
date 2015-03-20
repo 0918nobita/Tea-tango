@@ -14,6 +14,10 @@ function getWord($word, $lang = '') {
 	return json_decode(file_get_contents(buildLangFileName($lang)))[$word];
 }
 
+function lang($word, $lang = '') {
+	return getWord($word, $lang);
+}
+
 /**
  * Set lang package
  * 
