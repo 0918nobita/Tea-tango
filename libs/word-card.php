@@ -16,6 +16,15 @@ class WordCard {
 		$this->created = isset($result['created']) ? $result['created'] : '';
 	}
 
+	public static function find($id) {
+		$sql = 'select * from wordcards where id = ?';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute(array($id));
+		$result = $sth->fetch();
+		$wordcard = new self($result);
+		return $wordcard;
+	}
+
 	public function getId() {
 		return $this->id;
 	}
