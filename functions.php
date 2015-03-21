@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/config.php';
+
 function &connectDb() {
 	static $dbh;
 	if (!isset($dbh)) {
