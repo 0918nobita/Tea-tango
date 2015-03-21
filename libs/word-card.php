@@ -8,12 +8,12 @@ class WordCard {
 	private $created = '';
 
 	public function __construct($result = array()) {
-		$this->id = $result['id'];
-		$this->name = $result['name'];
-		$this->authorId = $result['author_id'];
-		$this->descrition = $result['description'];
-		$this->category = $result['category'];
-		$this->created = $result['created'];
+		$this->id = isset($result['id']) ? $result['id'] : 0;
+		$this->name = isset($result['name']) ? $result['name'] : '';
+		$this->authorId = isset($result['author_id']) ? $result['author_id'] : 0;
+		$this->descrition = isset($result['description']) ? $result['description'] : '';
+		$this->category = isset($result['category']) ? $result['category'] : 0;
+		$this->created = isset($result['created']) ? $result['created'] : '';
 	}
 
 	public function getId() {
