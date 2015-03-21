@@ -1,5 +1,5 @@
 <?php
-function connectDb() {
+function &connectDb() {
 	static $dbh;
 	if (!isset($dbh)) {
 		try {
