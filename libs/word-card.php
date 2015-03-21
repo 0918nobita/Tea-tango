@@ -7,6 +7,15 @@ class WordCard {
 	private $category = 0;
 	private $created = '';
 
+	public function __construct($result = array()) {
+		$this->id = $result['id'];
+		$this->name = $result['name'];
+		$this->authorId = $result['author_id'];
+		$this->descrition = $result['description'];
+		$thos->category = $result['category'];
+		$this->created = $result['created'];
+	}
+
 	public function getId() {
 		return $this->id;
 	}
