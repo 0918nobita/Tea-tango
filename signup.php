@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 	if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
 		$err['email'] = lang('メールアドレスの形式が正しくありません',$lang);
 	}
-	if (emailExists($email,$dbh)) {
+	if (emailExists($email)) {
 		$err['email'] = lang('このメールアドレスは既に登録されています',$lang);
 	}
 	//メールアドレスが空？
