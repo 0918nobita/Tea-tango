@@ -1,8 +1,7 @@
 <?php
-
 require_once __DIR__ . '/config.php';
 
-function connectDb() {
+function &connectDb() {
 	static $dbh;
 	if (!isset($dbh)) {
 		try {
@@ -13,6 +12,10 @@ function connectDb() {
 		}
 	}
 	return $dbh;
+}
+
+function getPdoInstance() {
+	return connectDb();
 }
 
 function h($s) {
