@@ -15,11 +15,10 @@ if (empty($_SESSION['me'])) {
 	exit();
 }
 $me = $_SESSION['me'];
-require_once dirname(__FILE__).'/libs/Smarty.class.php';
-$smarty = new Smarty();
-$smarty->template_dir = 'templates';
-$smarty->compile_dir = 'templates_c';
-$smarty->cache_dir = 'cache';
+
+require_once __DIR__ . '/functions.php';
+$smarty = getSmartyInstance();
+
 //タイムライン
 if ($_GET['p']=='timeline') {
 }
