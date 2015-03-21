@@ -1,5 +1,5 @@
 <?php
-class WordCard {
+class Wordcard {
 	private $id = 0;
 	private $name = '';
 	private $authorId = 0;
