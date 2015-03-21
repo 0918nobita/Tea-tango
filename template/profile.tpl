@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,10 +10,6 @@
 <div id="page-title">
 <div id="page-title-text"><p>{$my_name}のプロフィール</p></div>
 </div>
-{foreach $my_wordcards as $wordcard}
-<div class="object"><p><b>{$wordcard.name}</b></p>
-<p>{$wordcard.description}</p></div>
-{/foreach}
-</div>
-</body>
-</html>
+<?php
+echo'<link rel="stylesheet" href="http://ttan5.zz.vc/test2/eitango.css">{foreach $my_wordcards as $wordcard}<div class="object"><p><b><a href="index.php?lang={$lang}&p=wordcard&id={$wordcard.id}">{$wordcard.name}</a></b></p><p>{$wordcard.description}</p></div>{/foreach}</div></body></html>';
+?>

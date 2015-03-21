@@ -20,13 +20,14 @@ $smarty = new Smarty();
 $smarty->template_dir = __DIR__.'/templates';
 $smarty->compile_dir = __DIR__.'/templates_c';
 $smarty->cache_dir = __DIR__.'/cache';
+$smarty->assign('lang',$_SESSION['lang']);
 //タイムライン
 if ($_GET['p']=='timeline') {
 }
 //プロフィール
 if ($_GET['p']=='profile') {
 	try{
-		$stmt = $dbh->query('select * from wordcards where author_id='.$me['id'].' order by id desc');
+		$stmt = $dbh->query('select * from wordcards where author_id='.$_GET['id'].' order by id desc');
 		$my_wordcards = array();
 		while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$my_wordcards[] = $data;
@@ -40,15 +41,13 @@ if ($_GET['p']=='profile') {
 		$smarty->assign('error_description',lang('ユーザー情報を読み込むことができませんでした。',$_SESSION['lang']));
 		$smarty->display('error.tpl');
 		exit();
-	}
-	if ($me['id']==$_GET['id']) {
-		$smarty->assign('my_name',$me['name']);
-		$smarty->assign('my_introduce',$me['introduce']);
+	} else {
+		$user = array();
+		$user = userInfo($_GET['id']);
+		$smarty->assign('my_name',$user['name']);
+		$smarty->assign('my_introduce',$user['introduce']);
 		$smarty->assign('my_wordcards',$my_wordcards);
 		$smarty->display('profile.tpl');
-		exit();
-	} else {
-		exit();
 	}
 }
 //プロフィール編集
