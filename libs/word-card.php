@@ -12,7 +12,7 @@ class WordCard {
 		$this->name = $result['name'];
 		$this->authorId = $result['author_id'];
 		$this->descrition = $result['description'];
-		$thos->category = $result['category'];
+		$this->category = $result['category'];
 		$this->created = $result['created'];
 	}
 
