@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('header.php');
+require_once __DIR__.'/header.php';
 
 if (!empty($_SESSION['me'])) {
 	header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title><?php echo lang('ログイン',$_SESSION['lang']).'┃Tea-tango'; ?></title>
+<title><?php echo lang('ログイン',$_SESSION['lang']).'|Tea-tango'; ?></title>
 <meta charset="UTF-8">
 </head>
 <body>

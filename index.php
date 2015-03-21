@@ -1,14 +1,14 @@
 <?php
 session_start();
-require_once('config.php');
-require_once('functions.php');
+require_once __DIR__.'/config.php';
+require_once __DIR__.'/functions.php';
 if ($_GET['lang']=='en') {
 	$_SESSION['lang'] = 'en';
 } else {
 	$_SESSION['lang'] = 'ja';
 }
-require_once('language.php');
-require_once('header.php');
+require_once __DIR__.'/language.php';
+require_once __DIR__.'/header.php';
 $dbh = connectDb();
 if (empty($_SESSION['me'])) {
 	header('Location: login.php?lang='.$_SESSION['lang']);
@@ -17,9 +17,9 @@ if (empty($_SESSION['me'])) {
 $me = $_SESSION['me'];
 require_once dirname(__FILE__).'/libs/Smarty.class.php';
 $smarty = new Smarty();
-$smarty->template_dir = 'templates';
-$smarty->compile_dir = 'templates_c';
-$smarty->cache_dir = 'cache';
+$smarty->template_dir = __DIR__.'/templates';
+$smarty->compile_dir = __DIR__.'/templates_c';
+$smarty->cache_dir = __DIR__.'/cache';
 //タイムライン
 if ($_GET['p']=='timeline') {
 }

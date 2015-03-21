@@ -2,16 +2,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>お知らせ┃Tea-tango</title>
+<title>{$my_name}|Tea-tango</title>
 </head>
 <body>
 <div id="main">
 <div id="page-title">
-<div id="page-title-text"><p>お知らせ</p></div>
+<div id="page-title-text"><p>{$my_name}のプロフィール</p></div>
 </div>
-{foreach $notices as $notice}
-<div class="object"><p><b>{$notice.title}</b></p>
-<p>{$notice.text}</p></div>
+{foreach $my_wordcards as $wordcard}
+<div class="object"><p><b>{$wordcard.name}</b></p>
+<p>{$wordcard.description}</p></div>
 {/foreach}
 </div>
 </body>
