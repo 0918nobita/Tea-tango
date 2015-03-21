@@ -36,9 +36,9 @@ function userInfo($id) {
 	}
 	return array('id'=>$user[0]['id'],'name'=>$user[0]['name'],'email'=>$user[0]['email'],'introduce'=>$user[0]['introduce'],'created'=>$user[0]['created']);
 }
-function emailExists($email,$dbh) {
+function emailExists($email) {
 	$sql = "select * from users where email = :email limit 1";
-	$stmt = $dbh->prepare($sql);
+	$stmt = connectDb()->prepare($sql);
 	$stmt->execute(array(":email"=>$email));
 	$user = $stmt->fetch();
 	return $user ? true : false;
