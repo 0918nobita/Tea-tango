@@ -9,6 +9,14 @@ class User {
 	private $introduce = '';
 	private $created = '';
 
+	public function __construct($result = array()) {
+		$this->id = isset($result['id']) ? $result['id'] : 0;
+		$this->name = isset($result['name']) ? $result['name'] : '';
+		$this->email = isset($result['email']) ? $result['email'] : '';
+		$this->introduce = isset($result['introduce']) ? $result['introduce'] : '';
+		$this->created = isset($result['created']) ? $result['created'] : '';
+	}
+
 	public static function find($id) {
 		$sql = 'select * from users where id = ?';
 		$sth = connectDb()->prepare($sql);
