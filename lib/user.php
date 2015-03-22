@@ -12,13 +12,27 @@ class User {
 	private $modified = '';
 
 	public function __construct($result = array()) {
-		$this->id = isset($result['id']) ? $result['id'] : 0;
-		$this->name = isset($result['name']) ? $result['name'] : '';
-		$this->email = isset($result['email']) ? $result['email'] : '';
-		$this->password = isset($result['password']) ? $result['password'] : '';
-		$this->introduce = isset($result['introduce']) ? $result['introduce'] : '';
-		$this->created = isset($result['created']) ? $result['created'] : '';
-		$this->modified = isset($result['modified']) ? $result['modified'] : '';
+		if (isset($result['id'])) {
+			$this->id = $result['id'];
+		}
+		if (isset($result['name'])) {
+			$this->name = $result['name'];
+		}
+		if (isset($result['email'])) {
+			$this->email = $result['email'];
+		}
+		if (isset($result['password'])) {
+			$this->password = $result['password'];
+		}
+		if (isset($result['introduce'])) {
+			$this->introduce = $result['introduce'];
+		}
+		if (isset($result['created'])) {
+			$this->created = $result['created'];
+		}
+		if (isset($result['modified'])) {
+			$this->modified = $result['modified'];
+		}
 	}
 
 	public static function find($id) {
