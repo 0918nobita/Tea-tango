@@ -37,7 +37,7 @@ class User {
 
 	public static function find($id) {
 		$sql = 'select * from users where id = ?';
-		$sth = connectDb()->prepare($sql);
+		$sth = getPdoInstance()->prepare($sql);
 		$sth->execute(array($id));
 		return new self($sth->fetch());
 	}
