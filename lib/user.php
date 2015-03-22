@@ -46,7 +46,7 @@ class User {
 		return self::find($id);
 	}
 
-	public function findByEmail($email) {
+	public static function findByEmail($email) {
 		$sql = 'select * from users where email = ?';
 		$sth = getPdoInstance()->prepare($sql);
 		$sth->execute(array($email));
