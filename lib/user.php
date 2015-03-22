@@ -6,6 +6,7 @@ class User {
 	private $id = 0;
 	private $name = '';
 	private $email = '';
+	private $password = '';
 	private $introduce = '';
 	private $created = '';
 
@@ -13,6 +14,7 @@ class User {
 		$this->id = isset($result['id']) ? $result['id'] : 0;
 		$this->name = isset($result['name']) ? $result['name'] : '';
 		$this->email = isset($result['email']) ? $result['email'] : '';
+		$this->password = isset($result['password']) ? $result['password'] : '';
 		$this->introduce = isset($result['introduce']) ? $result['introduce'] : '';
 		$this->created = isset($result['created']) ? $result['created'] : '';
 	}
@@ -36,6 +38,10 @@ class User {
 		return $this->email;
 	}
 
+	public function getPassword() {
+		return $this->password;
+	}
+
 	public function getIntroduce() {
 		return $this->introduce;
 	}
@@ -56,6 +62,11 @@ class User {
 
 	public function &setEmail($email) {
 		$this->email = $email;
+		return $this;
+	}
+
+	public function &setPassword($password) {
+		$this->password = $password;
 		return $this;
 	}
 
