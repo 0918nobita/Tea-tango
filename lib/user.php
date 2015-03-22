@@ -35,6 +35,12 @@ class User {
 		}
 	}
 
+	public function save() {
+		$sql = 'insert into users values (?, ?, ?, ?, ?, ?, ?) on duplicate key update id = ?, name = ?, email = ?, password = ?, introduce = ?, created = ?, modified = ?';
+		$sth = getPdoInstance()->preapre($sql);
+		$sth->execute(array($this->id, $this->name, $this->email, $this->password, $this->introduce, $this->created, $this->modified, $this->id, $this->name, $this->email, $this->password, $this->introduce, $this->created, $this->modified))
+	}
+
 	public static function find($id) {
 		return self::findById($id);
 	}
