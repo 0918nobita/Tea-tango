@@ -21,14 +21,7 @@ class User {
 		$sql = 'select * from users where id = ?';
 		$sth = connectDb()->prepare($sql);
 		$sth->execute(array($id));
-		$result = $sth->fetch();
-		$user = (new self)
-			->setId($result['id'])
-			->setName($result['name'])
-			->setEmail($result['email'])
-			->setIntroduce($result['introduce'])
-			->setCreated($result['created']);
-		return $user;
+		return new self($sth->fetch());
 	}
 
 	public function getId() {
