@@ -9,6 +9,7 @@ class User {
 	private $password = '';
 	private $introduce = '';
 	private $created = '';
+	private $modified = '';
 
 	public function __construct($result = array()) {
 		$this->id = isset($result['id']) ? $result['id'] : 0;
@@ -17,6 +18,7 @@ class User {
 		$this->password = isset($result['password']) ? $result['password'] : '';
 		$this->introduce = isset($result['introduce']) ? $result['introduce'] : '';
 		$this->created = isset($result['created']) ? $result['created'] : '';
+		$this->modified = isset($result['modified']) ? $result['modified'] : '';
 	}
 
 	public static function find($id) {
@@ -50,6 +52,10 @@ class User {
 		return $this->created;
 	}
 
+	public function getModified() {
+		return $this->modified;
+	}
+
 	public function &setId($id) {
 		$this->id = $id;
 		return $this;
@@ -77,6 +83,11 @@ class User {
 
 	public function &setCreated($created) {
 		$this->created = $created;
+		return $this;
+	}
+
+	public function &setModified($modified) {
+		$this->modified = $modified;
 		return $this;
 	}
 }
