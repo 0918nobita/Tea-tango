@@ -36,14 +36,14 @@ class User {
 	}
 
 	public static function find($id) {
+		return self::findById($id);
+	}
+
+	public static function findById($id) {
 		$sql = 'select * from users where id = ?';
 		$sth = getPdoInstance()->prepare($sql);
 		$sth->execute(array($id));
 		return new self($sth->fetch());
-	}
-
-	public static function findById($id) {
-		return self::find($id);
 	}
 
 	public static function findByEmail($email) {
