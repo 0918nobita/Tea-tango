@@ -1,11 +1,27 @@
 <?php
 
+require_once __DIR__ . '/../functions.php';
+
 class User {
 	private $id = 0;
 	private $name = '';
 	private $email = '';
 	private $introduce = '';
-	private $created = '';	
+	private $created = '';
+
+	public static function find($id) {
+		$sql = 'select * from users where id = ?';
+		$sth = connectDb()->prepare($sql);
+		$sth->execute(array($id));
+		$result = $sth->fetch();
+		$user = (new self)
+			->setId($result['id'])
+			->setName($result['name'])
+			->setEmail($result['email'])
+			->setIntroduce($result['introduce'])
+			->setCreated($result['created']);
+		return $user;
+	}
 
 	public function getId() {
 		return $this->id;
