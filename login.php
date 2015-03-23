@@ -1,12 +1,9 @@
 <?php
-
-require_once('config.php');
-require_once('functions.php');
-
 session_start();
+require_once __DIR__.'/header.php';
 
 if (!empty($_SESSION['me'])) {
-	header('Location: '.SITE_URL);
+	header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
 	exit();
 }
 
@@ -57,30 +54,29 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 		//セッションハイジャック対策
 		session_regenerate_id(true);
 		$_SESSION['me'] = $me;
-		header('Location: '.SITE_URL.'/test');
+		header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
 		exit;
 	}
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>ログイン┃Tea-tango</title>
+<title><?php echo lang('ログイン',$_SESSION['lang']).'|Tea-tango'; ?></title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<link rel="stylesheet" type="text/css" href="eitango.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script language="javascript" src="eitango_header.js"></script>
 </head>
 <body>
-<script>header();</script>
-<div class="main">
-<h2>ログイン</h2>
+<div id="main">
+<div id="page-title">
+<div id="page-title-text"><p><?php echo lang('ログイン',$_SESSION['lang']) ?></p></div>
+</div>
 <form action="" method="POST">
-<p>メールアドレス：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
-<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
-<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>"
-<p><input type="submit" value="ログイン">　<a href="signup.php">新規登録はこちら！</a></p>
+<p><?php echo lang('メールアドレス',$_SESSION['lang']) ?>：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
+<p><?php echo lang('パスワード',$_SESSION['lang']) ?>：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
+<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
+<p><?php echo '<input type="submit" value="'.lang('ログイン',$_SESSION['lang']).'">　<a href="signup.php?lang='.$_SESSION['lang'].'">'.lang('新規登録はこちら！',$_SESSION['lang']).'</a></p>'; ?>
 </form>
+<p><a href="login.php?lang=ja">Japanese</a>　<a href="login.php?lang=en">English</a></p>
 <p>バグ等を発見した場合はTwitter <a href="http://twitter.com/0918nobita" style="text-decoration:none;">@0918nobita</a> までご連絡ください。</p>
 </div>
 </body>

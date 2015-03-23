@@ -1,7 +1,8 @@
 <?php
 
-require_once('config.php');
-require_once('functions.php');
+require_once __DIR__.'/config.php';
+require_once __DIR__.'/functions.php';
+require_once __DIR__.'/header.php';
 
 session_start();
 
@@ -13,4 +14,4 @@ if (!isset($_COOKIE[session_name()])) {
 
 session_destroy();
 
-header('Location:login.php');
+header('Location:login.php?lang='.$_SESSION['lang']);

@@ -1,0 +1,9 @@
+Redirect permanent /test2/timeline/ http://ttan5.zz.vc/test2/index.php
+
+Redirect permanent /test2/signup/ http://ttan5.zz.vc/test2/signup.php
+
+Redirect permanent /test2/login/ http://ttan5.zz.vc/test2/login.php
+
+Redirect permanent /test2/logout/ http://ttan5.zz.vc/test2/logout.php
+
+Redirect permanent /test2/notice/ http://ttan5.zz.vc/test2/?p=notice
