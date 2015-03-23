@@ -19,7 +19,7 @@ $me = $_SESSION['me'];
 //Smartyインスタンスの作成
 require_once dirname(__FILE__).'/libs/Smarty.class.php';
 $smarty = new Smarty();
-$smarty->template_dir = __DIR__.'/templates';
+$smarty->template_dir = __DIR__.'/template';
 $smarty->compile_dir = __DIR__.'/templates_c';
 $smarty->cache_dir = __DIR__.'/cache';
 $smarty->assign('lang',$_SESSION['lang']);
