@@ -64,3 +64,21 @@ function emailExists($email, $dbh) {
 function getSha1Password($str) {
 	return sha1(PASSWORD_KEY . $str);
 }
+
+class Token {
+	const TOKEN = 'token';
+	const MAX = 10;
+
+	public static function generate() {
+		$_SESSION[self::TOKEN] = array_slice($_SESSION[self::TOKEN], 0, self::MAX - 1);
+		return $_SESSION[self::TOKEN][] = sha1(uniqid(mt_rand(), true));
+	}
+
+	public static function check($token) {
+		if (($key = array_search($token, $_SESSION[self::TOKEN])) !== false) {
+			unset($_SESSION[self::TOKEN][$key]);
+			return true;
+		}
+		return false;
+	}
+}
