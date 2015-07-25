@@ -1,114 +1,85 @@
 <?php
 session_start();
-require_once('config.php');
-require_once('functions.php');
-if ($_GET['lang']=='en') {
-	$_SESSION['lang'] = 'en';
-} else {
-	$_SESSION['lang'] = 'ja';
-}
-require_once('language.php');
-require_once('header.php');
+
+require_once(dirname(__FILE__).'/config.php');
+require_once(dirname(__FILE__).'/functions.php');
+require_once(dirname(__FILE__).'/libs/Smarty.class.php' );
+require_once(dirname(__FILE__).'/header.php');
+
 $dbh = connectDb();
-if (empty($_SESSION['me'])) {
-	header('Location: login.php?lang='.$_SESSION['lang']);
-	exit();
-}
-$me = $_SESSION['me'];
-require_once dirname(__FILE__).'/libs/Smarty.class.php';
+
 $smarty = new Smarty();
-$smarty->template_dir = 'templates';
-$smarty->compile_dir = 'templates_c';
-$smarty->cache_dir = 'cache';
-//タイムライン
-if ($_GET['p']=='timeline') {
-}
-//プロフィール
-if ($_GET['p']=='profile') {
-	try{
-		$stmt = $dbh->query('select * from wordcards where author_id='.$me['id'].' order by id desc');
-		$my_wordcards = array();
-		while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$my_wordcards[] = $data;
+$smarty->template_dir = dirname( __FILE__ ).'/templetes';
+$smarty->compile_dir  = dirname( __FILE__ ).'/templetes_c';
+
+switch ($_GET['page']) {
+	//マイライブラリ
+	case "my_library":
+		$smarty->display("my_library.tpl");
+		if (empty($_SESSION['me'])) {
+			header("Location: login.php");
+			exit;
 		}
-	} catch(PDOException $e) {
-		echo '接続に失敗しました。';
-		exit();
-	}
-	if ($_GET['id']=='') {
-		$smarty->assign('error_number','00001');
-		$smarty->assign('error_description',lang('ユーザー情報を読み込むことができませんでした。',$_SESSION['lang']));
-		$smarty->display('error.tpl');
-		exit();
-	}
-	if ($me['id']==$_GET['id']) {
-		$smarty->assign('my_name',$me['name']);
-		$smarty->assign('my_introduce',$me['introduce']);
-		$smarty->assign('my_wordcards',$my_wordcards);
-		$smarty->display('profile.tpl');
-		exit();
-	} else {
-		exit();
-	}
-}
-//プロフィール編集
-if ($_GET['p']=='profile_edit') {
-
-}
-//単語帳詳細
-if ($_GET['p']=='wordcard') {
-
-}
-//単語帳追加
-if ($_GET['p']=='wordcard_add') {
-
-}
-//単語帳編集
-if ($_GET['p']=='wordcard_edit') {
-
-}
-//問題追加
-if ($_GET['p']=='card_add') {
-
-}
-//問題編集
-if ($_GET['p']=='card_edit') {
-
-}
-//お知らせ
-if ($_GET['p']=='notice') {
-	try{
-		$stmt = $dbh->query('select * from notice order by id desc');
-		$notices = array();
-		while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$notices[] = $data;
+		break;
+	//単語カード
+	case "card":
+		$stmt = $dbh->prepare("select * from cards order by id desc limit 0, 20");
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		$smarty->assign("card_list", $result);
+		$smarty->display("card.tpl");
+		break;
+	//ヘルプ
+	case "help":
+		$smarty->display("help.tpl");
+		break;
+	//プロフィール
+	case "profile":
+		if (empty($_GET['name'])) {
+			header("Location: index.php?page=card");
+			exit;
 		}
-	} catch(PDOException $e) {
-		echo '接続に失敗しました。';
-		exit();
-	}
-	$smarty->assign('notices',$notices);
-	$smarty->display('notice.tpl');
+		if (!getUserByName($_GET['name'], $dbh)) {
+			header("Location: index.php?page=card");
+			exit;
+		}
+		$smarty->assign("myName", $_SESSION['me']['name']);
+		$smarty->assign("name", $_GET['name']);
+		$smarty->assign("screen_name",getScreenNameByName($_GET['name'], $dbh));
+		$smarty->assign("profile",h(getProfileByName($_GET['name'], $dbh)));
+		$smarty->display("profile.tpl");
+		break;
+	case "profile_edit":
+		if (empty($_SESSION['me'])) {
+			header("Location: login.php");
+			exit;
+		}
+		$smarty->assign("name", $_SESSION['me']['name']);
+		$smarty->assign("screen_name",getScreenNameByName($_SESSION['me']['name'], $dbh));
+		$smarty->assign("profile",h(getProfileByName($_SESSION['me']['name'], $dbh)));
+		$smarty->display("profile_edit.tpl");
+		break;
+	//その他
+	default:
+		if (empty($_SESSION['me'])) {
+			header("Location: ".SITE_URL."about.php");
+		} else {
+			header("Location: ".SITE_URL."index.php?page=card");
+		}
+		break;
 }
-if ($_GET['p']=='my_wordcard') {
 
-}
-if ($_GET['p']=='performance') {
-
-}
-if ($_GET['p']=='wordcard_seach') {
-
-}
-if ($_GET['p']=='card_seach') {
-
-}
-if ($_GET['p']=='user_seach') {
-
-}
-if ($_GET['p']=='help') {
-
-}
-if ($_GET['p']=='about') {
-
-}
 ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<body>
+<div id="main">
+</div>
+</body>
+</html>

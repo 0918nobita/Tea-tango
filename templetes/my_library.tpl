@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<title>効果的に暗記するならTea-tango！</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="main">
+	<p>ライブラリ</p>
+</div>
+</body>
+</html>

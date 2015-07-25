@@ -1,21 +1,40 @@
 <?php
 session_start();
-require_once('header.php');
+require_once(dirname(__FILE__).'/config.php');
+require_once(dirname(__FILE__).'/functions.php');
+require_once(dirname(__FILE__).'/libs/Smarty.class.php' );
+require_once(dirname(__FILE__).'/header.php');
+
+function setToken() {
+	$token = sha1(uniqid(mt_rand(), true));
+	$_SESSION['token'] = $token;
+}
+
+function checkToken() {
+	if (empty($_SESSION['token']) || ($_SESSION['token'] != $_POST['token'])) {
+		echo "不正なPOSTが行われました。";
+		exit;
+	}
+}
+
+function emailExists($email, $dbh) {
+	$sql = "select * from users where email = :email limit 1";
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute(array(":email" => $email));
+	$user = $stmt->fetch();
+	return $user ? true : false;
+}
+
+function getSha1Password($s) {
+	return sha1(PASSWORD_KEY.$s);
+}
 
 if (!empty($_SESSION['me'])) {
-	header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
-	exit();
+	header("Location: ".SITE_URL);
+	exit;
 }
 
-function getUser($email, $password, $dbh) {
-	$sql = "select * from users where email = :email and password = :password limit 1";
-	$stmt = $dbh->prepare($sql);
-	$stmt->execute(array("email"=>$email,"password"=>getSha1Password($password)));
-	$user = $stmt->fetch();
-	return $user ? $user : false;
-}
-
-if ($_SERVER['REQUEST_METHOD']!='POST') {
+if ($_SERVER['REQUEST_METHOD'] != "POST") {
 	//CSRF対策
 	setToken();
 } else {
@@ -24,37 +43,23 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 	$password = $_POST['password'];
 	$dbh = connectDb();
 	$err = array();
-
-	//メールアドレスが登録されていない
-	if (!emailExists($email,$dbh)) {
-		$err['email'] = 'このメールアドレスは登録されていません';
-	}
-
-	//メールアドレスの形式が不正
-	if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-		$err['email'] = 'メールアドレスの形式が正しくないです。';
-	}
-		
 	//メールアドレスが空？
-	if ($email=='') {
-		$err['email'] = 'メールアドレスを入力してください';
+	if (empty($email)) {
+		$err['email'] = "メールアドレスを入力してください";
 	}
-
 	//メールアドレスとパスワードが正しくない
 	if(!$me = getUser($email, $password, $dbh)) {
-		$err['password'] = 'パスワードとメールアドレスが正しくありません';
+		$err['password'] = "メールアドレスとパスワードが正しくありません";
 	}
-
 	//パスワードが空？
-	if ($password=='') {
-		$err['password'] = 'パスワードを入力してください';
+	if ($password == "") {
+		$err['password'] = "パスワードを入力してください";
 	}
-	
 	if (empty($err)) {
 		//セッションハイジャック対策
 		session_regenerate_id(true);
 		$_SESSION['me'] = $me;
-		header('Location: index.php?p=notice&lang='.$_SESSION['lang']);
+		header("Location: index.php?page=card");
 		exit;
 	}
 }
@@ -62,22 +67,20 @@ if ($_SERVER['REQUEST_METHOD']!='POST') {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title><?php echo lang('ログイン',$_SESSION['lang']).'┃Tea-tango'; ?></title>
-<meta charset="UTF-8">
+<meta charset="utf8">
+<link rel="stylesheet" href="style.css">
+<title>効率的に暗記するならTea-tango！/ログイン</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
 <div id="main">
-<div id="page-title">
-<div id="page-title-text"><p><?php echo lang('ログイン',$_SESSION['lang']) ?></p></div>
-</div>
-<form action="" method="POST">
-<p><?php echo lang('メールアドレス',$_SESSION['lang']) ?>：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
-<p><?php echo lang('パスワード',$_SESSION['lang']) ?>：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
-<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
-<p><?php echo '<input type="submit" value="'.lang('ログイン',$_SESSION['lang']).'">　<a href="signup.php?lang='.$_SESSION['lang'].'">'.lang('新規登録はこちら！',$_SESSION['lang']).'</a></p>'; ?>
-</form>
-<p><a href="login.php?lang=ja">Japanese</a>　<a href="login.php?lang=en">English</a></p>
-<p>バグ等を発見した場合はTwitter <a href="http://twitter.com/0918nobita" style="text-decoration:none;">@0918nobita</a> までご連絡ください。</p>
+	<h1>ログイン</h1>
+	<form action="" method="POST">
+		<p>メールアドレス：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
+		<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
+		<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
+		<p><input type="submit" value="ログイン">　<a href="signup.php">新規登録はこちら！</a></p>
+	</form>
 </div>
 </body>
 </html>
