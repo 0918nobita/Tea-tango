@@ -99,8 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
+<div id="titleBar">
+	新規ユーザー登録
+</div>
 <div id="main">
-	<h1>新規ユーザー登録</h1>
 	<form action="" method="POST">
 		<p>スクリーンネーム(後から変更できます)：<input type="text" name="screen_name" value="<?php echo h($screen_name); ?>"> <?php echo h($err['screen_name']); ?></p>
 		<p>ユーザーネーム(登録後の変更はできません)：<input type="text" name="name" value="<?php echo h($name); ?>"> <?php echo h($err['name']); ?></p>

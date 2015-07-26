@@ -73,8 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
+<div id="titleBar">
+	ログイン
+</div>
 <div id="main">
-	<h1>ログイン</h1>
 	<form action="" method="POST">
 		<p>メールアドレス：<input type="text" name="email" value="<?php echo h($email); ?>"> <?php echo h($err['email']); ?></p>
 		<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>

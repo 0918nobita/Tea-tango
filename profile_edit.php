@@ -70,8 +70,10 @@ textarea {
 </style>
 </head>
 <body>
+<div id="titleBar">
+	プロフィール編集
+</div>
 <div id="main">
-	<h1>プロフィール編集</h1>
 	<form action="" method="POST">
 		<?php $dbh = connectDb(); ?>
 		<p>名前：　<input type="text" name="screen_name" value="<?php echo getScreenNameByName($_SESSION['me']['name'], $dbh); ?>" /></p>

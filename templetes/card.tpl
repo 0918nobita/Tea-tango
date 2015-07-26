@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="titleBar">
+	タイムライン
+</div>
 <div id="main">
 	{foreach from=$card_list item=array}
 		<p>{$array['front']} : {$array['back']} : <a href="index.php?page=profile&name={$array['author']}">{$array['author']}</a> : {$array['created']}</p>

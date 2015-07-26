@@ -1,38 +1,47 @@
 body {
+	color: rgb(74, 74, 74);
 	background-color: #FFF6DB;
-	font-family: メイリオ;
+	font-family: 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo, sans-serif;
 	margin: 0;
 	padding: 0;
 }
 #header {
 	position: fixed;
-	background-color: #2F95FB;
+	background-color: white;
 	width: 100%;
-	height: 1.5em;
+	height: 1.8em;
 	text-align: center;
-	font-size: 3em;
-	color:white;
+	font-size: 2em;
+	color: #2F95FB;
 	z-index: 1;
 }
 #headerMenu {
 	position: fixed;
-	top: 4.5em;
+	top: 2.5em;
 	left: 0;
 	list-style: none;
 	width: 100%;
 	height: 4em;
-	background-color: white;
+	background-color: #2F95FB;
 	z-index: 1;
 }
 .headerMenuButton {
 	display: block;
 	float: left;
 	text-align: center;
-	color: black;
+	color: white;
 	width: 25%;
 }
-.headerMenuButton:hover {
-	background-color: #CCCCCC;
+#titleBar {
+	position: fixed;
+	top: 6.5em;
+	width: 100%;
+	color: white;
+	padding-top: 0.5em;
+	padding-left: 2em;
+	padding-bottom: 0.5em;
+	background-color: #4FB5FF;
+	z-index: 1;
 }
 #main {
 	position: absolute;

@@ -7,8 +7,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="titleBar">
+	ヘルプ
+</div>
 <div id="main">
-	<h1>ヘルプ</h1>
 	<p>ここでは、Tea-tangoの詳しい使い方/注意事項について載せてあります。ここを見ても問題が解決しない場合はTwitter <a href="https://twitter.com/0918nobita" target="_blank">@0918nobita</a> (開発者アカウント)までご連絡ください。</p>
 	<h3>迷惑行為等への対応について</h3>
 	<p>公序風俗に反する内容の投稿をしているユーザーには、すぐにその内容を修正するようにメールで警告します。長期間修正が行われていない場合、または迷惑行為が継続されている場合はアカウントを削除させていただきます。</p>

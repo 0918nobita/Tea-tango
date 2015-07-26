@@ -7,8 +7,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="titleBar">
+	プロフィール
+</div>
 <div id="main">
-	<p><font size="5em">{$screen_name}</font><br />{$name}<p>
+	<p><font size="5em">{$screen_name}</font><br />{$name}</p>
 	{if $myName == $name}
 		<p><a href="profile_edit.php"><input type="button" value="プロフィールを編集する"></a></p>
 	{/if}

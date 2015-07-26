@@ -7,8 +7,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="titleBar">
+	ライブラリ
+</div>
 <div id="main">
-	<p>ライブラリ</p>
 </div>
 </body>
 </html>
