@@ -59,6 +59,9 @@ switch ($_GET['page']) {
 		$smarty->assign("profile",h(getProfileByName($_SESSION['me']['name'], $dbh)));
 		$smarty->display("profile_edit.tpl");
 		break;
+	case "others":
+		$smarty->display("others.tpl");
+		break;
 	//その他
 	default:
 		if (empty($_SESSION['me'])) {
