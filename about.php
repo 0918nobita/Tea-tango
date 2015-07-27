@@ -13,6 +13,7 @@ require_once(dirname(__FILE__).'/header.php');
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div id="titleBar">Tea-tangoをはじめよう</div>
 <div id="main">
 	<?php

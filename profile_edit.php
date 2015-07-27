@@ -70,6 +70,7 @@ textarea {
 </style>
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div id="titleBar">
 	プロフィール編集
 </div>

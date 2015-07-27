@@ -99,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div id="titleBar">
 	新規ユーザー登録
 </div>
