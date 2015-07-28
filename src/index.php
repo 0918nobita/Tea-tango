@@ -3,16 +3,20 @@ session_start();
 
 require_once(dirname(__FILE__).'/config.php');
 require_once(dirname(__FILE__).'/functions.php');
-require_once(dirname(__FILE__).'/libs/Smarty.class.php' );
+require_once('../libs/Smarty.class.php' );
 require_once(dirname(__FILE__).'/header.php');
 
 $dbh = connectDb();
 
 $smarty = new Smarty();
-$smarty->template_dir = dirname( __FILE__ ).'/templates';
+$smarty->template_dir = dirname( __FILE__ ).'/views';
 $smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
 
 switch ($_GET['page']) {
+	//概要
+	case "about":
+		$smarty->display("about.tpl");
+		break;
 	//マイライブラリ
 	case "my_library":
 		$smarty->display("my_library.tpl");
@@ -65,9 +69,9 @@ switch ($_GET['page']) {
 	//その他
 	default:
 		if (empty($_SESSION['me'])) {
-			header("Location: ".SITE_URL."about.php");
+			header("Location: ".SITE_URL."./src/index.php?page=about");
 		} else {
-			header("Location: ".SITE_URL."index.php?page=card");
+			header("Location: ".SITE_URL."./src/index.php?page=card");
 		}
 		break;
 }

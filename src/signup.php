@@ -2,7 +2,7 @@
 session_start();
 require_once(dirname(__FILE__).'/config.php');
 require_once(dirname(__FILE__).'/functions.php');
-require_once(dirname(__FILE__).'/libs/Smarty.class.php' );
+require_once('../libs/Smarty.class.php' );
 require_once(dirname(__FILE__).'/header.php');
 
 function setToken() {
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
 		<p>パスワード(再度入力)：<input type="password" name="password2" value=""> <?php echo h($err['password2']); ?></p>
 		<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
-		<p><input type="submit" value="新規登録">　<a href="login.php">戻る</a></p>
+		<p><input type="submit" value="新規登録">　<a href="login.php">アカウントをお持ちの方はログイン</a></p>
 	</form>
 </div>
 </body>

@@ -1,10 +1,4 @@
-<?php
-session_start();
-require_once(dirname(__FILE__).'/config.php');
-require_once(dirname(__FILE__).'/functions.php');
-require_once(dirname(__FILE__).'/header.php');
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf8">
@@ -13,14 +7,10 @@ require_once(dirname(__FILE__).'/header.php');
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once("analyticstracking.php") ?>
-<div id="titleBar">Tea-tangoをはじめよう</div>
+<div id="titleBar">
+	Tea-tangoをはじめよう
+</div>
 <div id="main">
-	<?php
-	if (empty($_SESSION["me"])) {
-		echo "<p>アカウントをお持ちの方は<a href='./login.php'>ログイン</a></p>";
-	}
-	?>
 	<h2>デジタル単語帳を、共有しよう</h2>
 	<p>簡単に単語帳/単語カードを作成することができます。それをタイムラインで公開して、みんなに使ってもらえます。</p>
 	<h2>他のユーザーが作った<br />単語帳/単語カードを<br />「マイライブラリ」に追加しよう</h2>
