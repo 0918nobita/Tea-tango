@@ -81,7 +81,7 @@ switch ($_GET['page']) {
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./views/style.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
