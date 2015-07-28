@@ -69,9 +69,9 @@ switch ($_GET['page']) {
 	//その他
 	default:
 		if (empty($_SESSION['me'])) {
-			header("Location: ".SITE_URL."/src/index.php?page=about");
+			header("Location: ".SITE_URL."src/index.php?page=about");
 		} else {
-			header("Location: ".SITE_URL."/src/index.php?page=card");
+			header("Location: ".SITE_URL."src/index.php?page=card");
 		}
 		break;
 }
