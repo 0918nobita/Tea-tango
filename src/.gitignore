@@ -2,7 +2,7 @@
 config.php
 
 #templetes_cフォルダにはSmartyがコンパイルして生成されたファイルが格納されます
-templetes_c/
+templates_c/
 
 #開発中に動作テストを行うために用意したSQLiteデータベースです。実際にはMySQLを使います
 tea-tango.db
