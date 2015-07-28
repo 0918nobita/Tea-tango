@@ -9,8 +9,8 @@ require_once(dirname(__FILE__).'/header.php');
 $dbh = connectDb();
 
 $smarty = new Smarty();
-$smarty->template_dir = dirname( __FILE__ ).'/templetes';
-$smarty->compile_dir  = dirname( __FILE__ ).'/templetes_c';
+$smarty->template_dir = dirname( __FILE__ ).'/templates';
+$smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
 
 switch ($_GET['page']) {
 	//マイライブラリ
