@@ -2,4 +2,4 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([0-9A-Za-z]+)/([0-9A-Za-z]+)$ src/index.php?page=$1&name=$2
+RewriteRule ^([0-9A-Za-z]+)/([0-9A-Za-z]+)$ /src/index.php?page=$1&name=$2
