@@ -18,20 +18,20 @@ switch ($_GET['page']) {
 		$smarty->display("about.tpl");
 		break;
 	//マイライブラリ
-	case "my_library":
-		$smarty->display("my_library.tpl");
+	case "library":
+		$smarty->display("library.tpl");
 		if (empty($_SESSION['me'])) {
 			header("Location: login.php");
 			exit;
 		}
 		break;
-	//単語カード
-	case "card":
+	//タイムライン
+	case "timeline":
 		$stmt = $dbh->prepare("select * from cards order by id desc limit 0, 20");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		$smarty->assign("card_list", $result);
-		$smarty->display("card.tpl");
+		$smarty->display("timeline.tpl");
 		break;
 	//ヘルプ
 	case "help":
@@ -57,11 +57,9 @@ switch ($_GET['page']) {
 		if (empty($_SESSION['me'])) {
 			header("Location: login.php");
 			exit;
+		} else {
+			header("Location: profile-edit.php");
 		}
-		$smarty->assign("name", $_SESSION['me']['name']);
-		$smarty->assign("screen_name",getScreenNameByName($_SESSION['me']['name'], $dbh));
-		$smarty->assign("profile",h(getProfileByName($_SESSION['me']['name'], $dbh)));
-		$smarty->display("profile_edit.tpl");
 		break;
 	case "others":
 		$smarty->display("others.tpl");
