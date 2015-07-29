@@ -16,7 +16,7 @@
 	<p>他のユーザーが作成した単語帳/単語カードを、自分の単語帳の置き場所「マイライブラリ」に追加して、使いたいときにすぐ表示できるようにできます。</p>
 	<h2>閲覧だけなら、会員登録は必要ありません</h2>
 	<p></p>
-	<div id="letsstartButton"><a href="index.php?page=card" style="text-decoration: none;">さぁ、はじめよう</a></div>
+	<div id="letsstartButton"><a href="timeline" style="text-decoration: none;">さぁ、はじめよう</a></div>
 </div>
 </body>
 </html>

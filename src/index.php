@@ -6,6 +6,12 @@ require_once(dirname(__FILE__).'/functions.php');
 require_once('../libs/Smarty.class.php' );
 require_once(dirname(__FILE__).'/header.php');
 
+//index.phpに直接アクセスしている場合は書換
+if(strpos($_SERVER["REQUEST_URI"],"index.php") !== false && isset($_GET['page'])) {
+	header("Location: ".SITE_URL.$_GET['page']);
+	exit();
+}
+
 $dbh = connectDb();
 
 $smarty = new Smarty();
@@ -21,7 +27,7 @@ switch ($_GET['page']) {
 	case "library":
 		$smarty->display("library.tpl");
 		if (empty($_SESSION['me'])) {
-			header("Location: login.php");
+			header("Location: login");
 			exit;
 		}
 		break;
@@ -40,11 +46,11 @@ switch ($_GET['page']) {
 	//プロフィール
 	case "profile":
 		if (empty($_GET['name'])) {
-			header("Location: index.php?page=card");
+			header("Location: timeline");
 			exit;
 		}
 		if (!getUserByName($_GET['name'], $dbh)) {
-			header("Location: index.php?page=card");
+			header("Location: timeline");
 			exit;
 		}
 		$smarty->assign("myName", $_SESSION['me']['name']);
@@ -55,10 +61,10 @@ switch ($_GET['page']) {
 		break;
 	case "profile_edit":
 		if (empty($_SESSION['me'])) {
-			header("Location: login.php");
+			header("Location: login");
 			exit;
 		} else {
-			header("Location: profile-edit.php");
+			header("Location: profile_edit.php");
 		}
 		break;
 	case "others":
@@ -67,9 +73,9 @@ switch ($_GET['page']) {
 	//その他
 	default:
 		if (empty($_SESSION['me'])) {
-			header("Location: ".SITE_URL."src/index.php?page=about");
+			header("Location: about");
 		} else {
-			header("Location: ".SITE_URL."src/index.php?page=card");
+			header("Location: timeline");
 		}
 		break;
 }

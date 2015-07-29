@@ -5,6 +5,12 @@ require_once(dirname(__FILE__).'/functions.php');
 require_once('../libs/Smarty.class.php' );
 require_once(dirname(__FILE__).'/header.php');
 
+//profile-edit.phpに直接アクセスしている場合は書換
+if(strpos($_SERVER["REQUEST_URI"],"profile-edit.php") !== false && isset($_GET['page'])) {
+	header("Location: ".SITE_URL."profile_edit");
+	exit();
+}
+
 function setToken() {
 	$token = sha1(uniqid(mt_rand(), true));
 	$_SESSION['token'] = $token;

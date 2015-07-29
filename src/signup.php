@@ -5,6 +5,12 @@ require_once(dirname(__FILE__).'/functions.php');
 require_once('../libs/Smarty.class.php' );
 require_once(dirname(__FILE__).'/header.php');
 
+//signup.phpに直接アクセスしている場合は書換
+if(strpos($_SERVER["REQUEST_URI"],"signup.php") !== false && isset($_GET['page'])) {
+	header("Location: ".SITE_URL."signup");
+	exit();
+}
+
 function setToken() {
 	$token = sha1(uniqid(mt_rand(), true));
 	$_SESSION['token'] = $token;
@@ -94,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <html lang="ja">
 <head>
 <meta charset="utf8">
-<link rel="stylesheet" href="./views/style.css">
+<link rel="stylesheet" href="/src/views/style.css">
 <title>効率的に暗記するならTea-tango！/新規ユーザー登録</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
@@ -111,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		<p>パスワード：<input type="password" name="password" value=""> <?php echo h($err['password']); ?></p>
 		<p>パスワード(再度入力)：<input type="password" name="password2" value=""> <?php echo h($err['password2']); ?></p>
 		<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
-		<p><input type="submit" value="新規登録">　<a href="login.php">アカウントをお持ちの方はログイン</a></p>
+		<p><input type="submit" value="新規登録">　<a href="login">アカウントをお持ちの方はログイン</a></p>
 	</form>
 </div>
 </body>

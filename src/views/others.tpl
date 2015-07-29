@@ -13,10 +13,10 @@
 </div>
 <div id="main">
 	<ul>
-		<li><a href="./profile-edit.php">プロフィール編集</a></li>
-		<li><a href="./logout.php">ログアウト</a></li>
+		<li><a href="profile_edit">プロフィール編集</a></li>
+		<li><a href="logout">ログアウト</a></li>
 		<li>Androidアプリ</li>
-		<li><a href="./index.php?page=help">ヘルプ</a></li>
+		<li><a href="help">ヘルプ</a></li>
 	</ul>
 </div>
 </body>
