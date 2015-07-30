@@ -3,7 +3,7 @@ session_start();
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/functions.php';
-require_once __DIR__ . '../libs/Smarty.class.php';
+require_once __DIR__ . '/../libs/Smarty.class.php';
 require_once __DIR__ . '/header.php';
 
 //index.phpに直接アクセスしている場合は書換
