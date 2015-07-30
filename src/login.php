@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		//セッションハイジャック対策
 		session_regenerate_id(true);
 		$_SESSION['me'] = $me;
-		header("Location: index.php?page=card");
+		header("Location: timeline");
 		exit;
 	}
 }

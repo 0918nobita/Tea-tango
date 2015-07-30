@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 			":password" => getSha1Password($password)
 			);
 		$stmt->execute($params);
-		header("Location: login.php");
+		header("Location: login");
 		exit;
 	}
 }
