@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require_once(dirname(__FILE__).'/config.php');
-require_once(dirname(__FILE__).'/functions.php');
-require_once('../libs/Smarty.class.php' );
-require_once(dirname(__FILE__).'/header.php');
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/../libs/Smarty.class.php';
+require_once __DIR__ . '/header.php';
 
 //index.phpに直接アクセスしている場合は書換
 if(strpos($_SERVER["REQUEST_URI"],"index.php") !== false && isset($_GET['page'])) {
