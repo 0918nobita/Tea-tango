@@ -85,12 +85,12 @@ switch ($_GET['page']) {
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="/src/views/style.css">
+<link rel="stylesheet" href="<?php echo SITE_URL . "src/views/style.css"; ?>">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
-<?php include_once("analyticstracking.php") ?>
+<?php include_once(SITE_URL . "src/analyticstracking.php") ?>
 <div id="main">
 </div>
 </body>

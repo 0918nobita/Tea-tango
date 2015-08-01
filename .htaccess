@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^signup$ /src/signup.php
 RewriteRule ^login$ /src/login.php
-RewriteRule ^logout$ /src/logout.php
+RewriteRule ^logout$ /src/controllers/logout.php
 RewriteRule ^profile/([0-9A-Za-z]+)$ /src/index.php?page=profile&name=$1
 RewriteRule ^timeline$ /src/index.php?page=timeline
 RewriteRule ^library$ /src/index.php?page=library
@@ -15,3 +15,5 @@ RewriteRule ^profile_edit$ /src/profile-edit.php
 
 #デフォルトのアクセス先(現在は概要ページ(about)に飛ばすようにしてます)
 RewriteRule ^$ /src/index.php?page=about
+
+ErrorDocument 404 /src/error.php

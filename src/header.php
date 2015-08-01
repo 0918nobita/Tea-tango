@@ -11,10 +11,10 @@
 <div id="headerMenu">
 	<?php
 	if (!empty($_SESSION['me'])) {
-		echo "<a href='library'><p class='headerMenuButton'><!-- マイライブラリ --><i class='fa fa-star'></i><br />ﾗｲﾌﾞﾗﾘ</p></a>";
-		echo "<a href='timeline'><p class='headerMenuButton'><!-- 単語カード --><i class='fa fa-home'></i><br />ﾀｲﾑﾗｲﾝ</p></a>";
-		echo "<a href='profile/".$_SESSION['me']['name']."'><p class='headerMenuButton'><i class='fa fa-user'></i><br />ﾌﾟﾛﾌｨｰﾙ</p></a>";
-		echo "<a href='others'><p class='headerMenuButton'><!-- ヘルプ --><i class='fa fa-cog'></i><br />その他</p></a>";
+		echo "<a href='" . SITE_URL . "library'><p class='headerMenuButton'><!-- マイライブラリ --><i class='fa fa-star'></i><br />ﾗｲﾌﾞﾗﾘ</p></a>";
+		echo "<a href='" . SITE_URL . "timeline'><p class='headerMenuButton'><!-- 単語カード --><i class='fa fa-home'></i><br />ﾀｲﾑﾗｲﾝ</p></a>";
+		echo "<a href='" . SITE_URL . "profile/".$_SESSION['me']['name']."'><p class='headerMenuButton'><i class='fa fa-user'></i><br />ﾌﾟﾛﾌｨｰﾙ</p></a>";
+		echo "<a href='" . SITE_URL . "others'><p class='headerMenuButton'><!-- ヘルプ --><i class='fa fa-cog'></i><br />その他</p></a>";
 	} else {
 		echo "<a href='signup'><p class='headerMenuButton'><!-- 単語カード --><i class='fa fa-sign-in'></i><br />新規登録</p></a>";
 		echo "<a href='timeline'><p class='headerMenuButton'><!-- 単語カード --><i class='fa fa-home'></i><br />ﾀｲﾑﾗｲﾝ</p></a>";

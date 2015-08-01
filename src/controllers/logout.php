@@ -13,4 +13,4 @@ if (isset($_COOKIE[session_name()])) {
 
 session_destroy();
 
-header('Location: '.SITE_URL.'src/login.php');
+header('Location: '.SITE_URL.'login');
