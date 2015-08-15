@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf8">
-<title>効果的に暗記するならTea-tango！/{$screen_name}のプロフィール</title>
+<title>{$screen_name}({$name})さん | Tea-tango</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>

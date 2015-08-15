@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <head>
 <meta charset="utf8">
 <link rel="stylesheet" href="/src/views/style.css">
-<title>効率的に暗記するならTea-tango！/新規ユーザー登録</title>
+<title>Tea-tango / 新規ユーザー登録</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
