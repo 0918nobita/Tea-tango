@@ -57,7 +57,7 @@ switch ($_GET['page']) {
 		$smarty->assign("myName", $_SESSION['me']['name']);
 		$smarty->assign("name", $_GET['name']);
 		$smarty->assign("screen_name",getScreenNameByName($_GET['name'], $dbh));
-		$smarty->assign("profile",h(getProfileByName($_GET['name'], $dbh)));
+		$smarty->assign("profile",preg_replace('/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/', '<a href="\\1\\2" target="_blank">\\1\\2</a>', h(getProfileByName($_GET['name'], $dbh))));
 		$smarty->display("profile.tpl");
 		break;
 	case "profile_edit":
