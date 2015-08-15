@@ -1,1 +1,8 @@
-/src/templates_c/
+#config.phpには定数DSN, CONSUMER_KEY, CONSUMER_SECRET, SITE_URLの定義、PHPのエラー設定、Cookieの設定が含まれます
+src/config.php
+
+#templetes_cフォルダにはSmartyがコンパイルして生成されたファイルが格納されます
+src/templates_c/
+
+#データベース
+src/models/tea-tango.db

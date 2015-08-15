@@ -1,8 +1,0 @@
-﻿#config.phpには定数DSN, CONSUMER_KEY, CONSUMER_SECRET, SITE_URLの定義、PHPのエラー設定、Cookieの設定が含まれます
-config.php
-
-#templetes_cフォルダにはSmartyがコンパイルして生成されたファイルが格納されます
-templates_c/
-
-#開発中に動作テストを行うために用意したSQLiteデータベースです。実際にはMySQLを使います
-tea-tango.db
