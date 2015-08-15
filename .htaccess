@@ -5,7 +5,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^signup$ /src/signup.php
 RewriteRule ^login$ /src/login.php
 RewriteRule ^logout$ /src/controllers/logout.php
-RewriteRule ^profile/([0-9A-Za-z]+)$ /src/index.php?page=profile&name=$1
+RewriteRule ^profile/(\w+)$ /src/index.php?page=profile&name=$1
 RewriteRule ^timeline$ /src/index.php?page=timeline
 RewriteRule ^library$ /src/index.php?page=library
 RewriteRule ^help$ /src/index.php?page=help
