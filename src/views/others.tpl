@@ -16,6 +16,7 @@
 		<li><a href="profile_edit">プロフィール編集</a></li>
 		<li><a href="logout">ログアウト</a></li>
 		<li>Androidアプリ</li>
+		<li><a href="http://goo.gl/forms/MYgCnxFlca" target="_blank">お問い合わせ</a></li>
 		<li><a href="help">ヘルプ</a></li>
 	</ul>
 </div>

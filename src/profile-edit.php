@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		$stmt->bindParam(":profile", $profile, PDO::PARAM_STR);
 		$stmt->bindValue(":id", $_SESSION['me']['id'], PDO::PARAM_INT);
 		$stmt->execute();
-		header("Location: index.php?page=profile&name=".$_SESSION['me']['name']);
+		header("Location: profile/".$_SESSION['me']['name']);
 		exit;
 	}
 }

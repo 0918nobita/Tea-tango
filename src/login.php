@@ -90,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		<?php echo h($err['email']); ?></p>
 		<p>パスワード：<input type="password" name="password" value="">
 		<?php echo h($err['password']); ?></p>
-		<p><input type="radio" name="auto_login" value="enable">1週間、ログイン状態を維持</p>
 		<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
 		<p><input type="submit" value="ログイン">　<a href="signup">新規登録はこちら！</a></p>
 	</form>
