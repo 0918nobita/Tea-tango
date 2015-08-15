@@ -51,7 +51,7 @@ switch ($_GET['page']) {
 			exit;
 		}
 		if (!getUserByName($_GET['name'], $dbh)) {
-			header("Location: timeline");
+			header("Location: ".SITE_URL."timeline");
 			exit;
 		}
 		$smarty->assign("myName", $_SESSION['me']['name']);
