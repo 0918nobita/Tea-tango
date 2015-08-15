@@ -17,6 +17,7 @@ $dbh = connectDb();
 $smarty = new Smarty();
 $smarty->template_dir = dirname( __FILE__ ).'/views';
 $smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
+$smarty->assign("site_url",SITE_URL);
 
 switch ($_GET['page']) {
 	//概要

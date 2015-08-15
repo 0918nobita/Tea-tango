@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 	setToken();
 } else {
 	checkToken();
+	
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$dbh = connectDb();
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		$err['email'] = "メールアドレスを入力してください";
 	}
 	//メールアドレスとパスワードが正しくない
-	if(!$me = getUser($email, $password, $dbh)) {
+	if (!$me = getUser($email, $password, $dbh)) {
 		$err['password'] = "メールアドレスとパスワードが正しくありません";
 	}
 	//パスワードが空？
@@ -64,13 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 	if (empty($err)) {
 		//セッションハイジャック対策
 		session_regenerate_id(true);
-		$flag = array();
-		$flag['email'] = setcookie("tea-tango_login_email", $email);
-		$flag['password'] = setcookie("tea-tango_login_password", $password);
-		if (!($flag['email'] && $flag['password'])) {
-			echo "<script>alert('Cookieを有効にしてください');</script>";
-			exit;
-		}
 		$_SESSION['me'] = $me;
 		header("Location: timeline");
 		exit;
@@ -92,23 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 </div>
 <div id="main">
 	<form action="" method="POST">
-		<p>メールアドレス：<input type="text" name="email" value="
-		<?php
-		if (isset($_COOKIE['tea-tango_login_email'])) {
-			echo $_COOKIE['tea-tango_login_email'];
-		} else {
-			echo h($email);
-		}
-		?>">
+		<p>メールアドレス：<input type="text" name="email" value="<?php echo h($email)?>">
 		<?php echo h($err['email']); ?></p>
-		<p>パスワード：<input type="password" name="password" value="
-		<?php
-		if (isset($_COOKIE['tea-tango_login_password'])) {
-			echo $_COOKIE['tea-tango_login_password'];
-		}
-		?>
-		"> <?php echo h($err['password']); ?></p>
-		<p><input type="radio" name="store" value="enable">次回からログインを省略する</p>
+		<p>パスワード：<input type="password" name="password" value="">
+		<?php echo h($err['password']); ?></p>
+		<p><input type="radio" name="auto_login" value="enable">1週間、ログイン状態を維持</p>
 		<input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
 		<p><input type="submit" value="ログイン">　<a href="signup">新規登録はこちら！</a></p>
 	</form>

@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST") {
 <html lang="ja">
 <head>
 <meta charset="utf8">
-<link rel="stylesheet" href="./views/style.css">
+<link rel="stylesheet" href="<?php echo SITE_URL . "src/views/style.css"; ?>">
 <title>効率的に暗記するならTea-tango！/プロフィール編集</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <style>
