@@ -58,6 +58,10 @@ switch ($_GET['page']) {
 		$smarty->assign("name", $_GET['name']);
 		$smarty->assign("screen_name",getScreenNameByName($_GET['name'], $dbh));
 		$smarty->assign("profile",preg_replace('/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/', '<a href="\\1\\2" target="_blank">\\1\\2</a>', h(getProfileByName($_GET['name'], $dbh))));
+		$stmt = $dbh->prepare("select * from cards where author=:name order by id desc limit 0, 20");
+		$stmt->execute(array(":name" => $_GET['name']));
+		$result = $stmt->fetchAll();
+		$smarty->assign("card_list", $result);
 		$smarty->display("profile.tpl");
 		break;
 	case "profile_edit":

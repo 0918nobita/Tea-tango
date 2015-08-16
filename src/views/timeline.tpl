@@ -11,7 +11,14 @@
 </div>
 <div id="main">
 	{foreach from=$card_list item=array}
-		<p>{$array['front']} : {$array['back']} : <a href="profile/{$array['author']}">{$array['author']}</a> : {$array['created']}</p>
+		<div class="card">
+			<div class="card_author">
+				<a href="profile/{$array['author']}">{$array['author']}</a>
+			</div>
+			<div class="card_contents">
+				{$array['front']}　=>　{$array['back']}
+			</div>
+		</div>
 	{/foreach}
 </div>
 </body>

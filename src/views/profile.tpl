@@ -15,6 +15,16 @@
 		<p><a href="{$site_url}profile_edit"><input type="button" value="プロフィールを編集する"></a></p>
 	{/if}
 	<p>{$profile}</p>
+	{foreach from=$card_list item=array}
+		<div class="card">
+			<div class="card_author">
+				<a href="{$array['author']}">{$array['author']}</a>
+			</div>
+			<div class="card_contents">
+				{$array['front']}　=>　{$array['back']}
+			</div>
+		</div>
+	{/foreach}
 </div>
 </body>
 </html>
