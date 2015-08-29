@@ -26,8 +26,8 @@ switch ($_GET['page']) {
 		break;
 	//マイライブラリ
 	case "library":
-		$smarty->display("library.tpl");
 		loginCheck("login");
+		$smarty->display("library.tpl");
 		break;
 	//タイムライン
 	case "timeline":
@@ -67,6 +67,7 @@ switch ($_GET['page']) {
 		exit;
 		break;
 	case "others":
+		loginCheck("login");
 		$smarty->display("others.tpl");
 		break;
 	//その他
