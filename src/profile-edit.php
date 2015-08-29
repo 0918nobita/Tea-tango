@@ -23,10 +23,7 @@ function checkToken() {
 	}
 }
 
-if (empty($_SESSION['me'])) {
-	header("Location: ".SITE_URL);
-	exit;
-}
+loginCheck("about");
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
 	//CSRF対策

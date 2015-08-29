@@ -67,13 +67,6 @@ switch ($_GET['page']) {
 		$smarty->display("profile.tpl");
 		break;
 	
-	//プロフィール編集
-	case "profile_edit":
-		loginCheck("login");
-		header("Location: profile_edit.php");
-		exit;
-		break;
-	
 	//その他
 	case "others":
 		loginCheck("login");
