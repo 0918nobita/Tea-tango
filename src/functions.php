@@ -12,6 +12,13 @@ function h($s) {
 	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
 }
 
+function loginCheck($url) {
+	if (empty($_SESSION['me'])) {
+		header("Location: " . $url);
+		exit;
+	}
+}
+
 function getUser($email, $password, $dbh) {
 	$sql = "select * from users where email = :email and password = :password limit 1;";
 	$stmt = $dbh->prepare($sql);
@@ -42,4 +49,18 @@ function getProfileByName($name, $dbh) {
 	$stmt->execute(array(":name"=>$name));
 	$result = $stmt->fetch();
 	return $result ? $result[0] : false;
+}
+
+//単語カードの投稿
+function postCard() {
+
+}
+
+//単語帳の投稿
+function postWordCard() {
+
+}
+
+function withDraw() {
+
 }

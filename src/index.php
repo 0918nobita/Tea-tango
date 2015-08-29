@@ -27,10 +27,7 @@ switch ($_GET['page']) {
 	//マイライブラリ
 	case "library":
 		$smarty->display("library.tpl");
-		if (empty($_SESSION['me'])) {
-			header("Location: login");
-			exit;
-		}
+		loginCheck("login");
 		break;
 	//タイムライン
 	case "timeline":
@@ -65,23 +62,17 @@ switch ($_GET['page']) {
 		$smarty->display("profile.tpl");
 		break;
 	case "profile_edit":
-		if (empty($_SESSION['me'])) {
-			header("Location: login");
-			exit;
-		} else {
-			header("Location: profile_edit.php");
-		}
+		loginCheck("login");
+		header("Location: profile_edit.php");
+		exit;
 		break;
 	case "others":
 		$smarty->display("others.tpl");
 		break;
 	//その他
 	default:
-		if (empty($_SESSION['me'])) {
-			header("Location: about");
-		} else {
-			header("Location: timeline");
-		}
+		loginCheck("about");
+		header("Location: timeline");
 		break;
 }
 
