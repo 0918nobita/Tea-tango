@@ -20,15 +20,18 @@ $smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
 $smarty->assign("site_url",SITE_URL);
 
 switch ($_GET['page']) {
+	
 	//概要
 	case "about":
 		$smarty->display("about.tpl");
 		break;
+	
 	//マイライブラリ
 	case "library":
 		loginCheck("login");
 		$smarty->display("library.tpl");
 		break;
+	
 	//タイムライン
 	case "timeline":
 		$stmt = $dbh->prepare("select * from cards order by id desc limit 0, 20");
@@ -37,10 +40,12 @@ switch ($_GET['page']) {
 		$smarty->assign("card_list", $result);
 		$smarty->display("timeline.tpl");
 		break;
+
 	//ヘルプ
 	case "help":
 		$smarty->display("help.tpl");
 		break;
+	
 	//プロフィール
 	case "profile":
 		if (empty($_GET['name'])) {
@@ -61,16 +66,20 @@ switch ($_GET['page']) {
 		$smarty->assign("card_list", $result);
 		$smarty->display("profile.tpl");
 		break;
+	
+	//プロフィール編集
 	case "profile_edit":
 		loginCheck("login");
 		header("Location: profile_edit.php");
 		exit;
 		break;
+	
+	//その他
 	case "others":
 		loginCheck("login");
 		$smarty->display("others.tpl");
 		break;
-	//その他
+
 	default:
 		loginCheck("about");
 		header("Location: timeline");
