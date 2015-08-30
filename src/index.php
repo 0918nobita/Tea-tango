@@ -79,6 +79,8 @@ switch ($_GET['page']) {
 		break;
 }
 
+require_once __DIR__ . '/footer.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
