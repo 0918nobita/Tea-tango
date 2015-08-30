@@ -12,6 +12,7 @@ RewriteRule ^help$ /src/index.php?page=help
 RewriteRule ^about$ /src/index.php?page=about
 RewriteRule ^others$ /src/index.php?page=others
 RewriteRule ^profile_edit$ /src/profile-edit.php
+RewriteRule ^change_language$ /src/change-language.php
 
 #デフォルトのアクセス先(現在は概要ページ(about)に飛ばすようにしてます)
 RewriteRule ^$ /src/index.php?page=about

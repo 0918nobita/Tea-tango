@@ -6,7 +6,7 @@
 <title>効率的に暗記するならTea-tango！</title>
 </head>
 <body>
-{config_load file="../models/translate/ja/about.conf"}
+{config_load file=$configFile section="about"}
 <div id="titleBar">
 	<!-- Tea-tangoをはじめよう -->
 	{#titleBar#}

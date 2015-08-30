@@ -13,6 +13,7 @@
 </div>
 <div id="main">
 	<ul>
+		<li><a href="change_language">言語</a></li>
 		<li><a href="profile_edit">プロフィール編集</a></li>
 		<li><a href="logout">ログアウト</a></li>
 		<li>Androidアプリ</li>

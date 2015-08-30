@@ -4,6 +4,24 @@ session_start();
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/../libs/Smarty.class.php';
+
+$smarty = new Smarty();
+$smarty->template_dir = dirname( __FILE__ ).'/views';
+$smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
+$smarty->assign("site_url", SITE_URL);
+
+switch ($_SESSION['lang']) {
+	case "en":
+		$smarty->assign("configFile", "../models/translate/en.conf");
+		break;
+	case "ja":
+		$smarty->assign("configFile", "../models/translate/ja.conf");
+		break;
+	default:
+		$smarty->assign("configFile", "../models/translate/ja.conf");
+		break;
+}
+
 require_once __DIR__ . '/header.php';
 
 //index.phpに直接アクセスしている場合は書換
@@ -14,13 +32,8 @@ if(strpos($_SERVER["REQUEST_URI"],"index.php") !== false && isset($_GET['page'])
 
 $dbh = connectDb();
 
-$smarty = new Smarty();
-$smarty->template_dir = dirname( __FILE__ ).'/views';
-$smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
-$smarty->assign("site_url",SITE_URL);
-
 switch ($_GET['page']) {
-	
+
 	//概要
 	case "about":
 		$smarty->display("about.tpl");
