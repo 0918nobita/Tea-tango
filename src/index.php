@@ -8,7 +8,16 @@ require_once __DIR__ . '/../libs/Smarty.class.php';
 $smarty = new Smarty();
 $smarty->template_dir = dirname( __FILE__ ).'/views';
 $smarty->compile_dir  = dirname( __FILE__ ).'/templates_c';
+
+if (isset($_SESSION['me'])) {
+	$smarty->assign("login", "true");
+	$smarty->assign("myName", $_SESSION['me']['name']);
+} else {
+	$smarty->assign("login", "false");
+}
+
 $smarty->assign("site_url", SITE_URL);
+$smarty->assign("myName", $_SESSION['me']['name']);
 
 switch ($_SESSION['lang']) {
 	case "en":
@@ -21,8 +30,6 @@ switch ($_SESSION['lang']) {
 		$smarty->assign("configFile", "../models/translate/ja.conf");
 		break;
 }
-
-require_once __DIR__ . '/header.php';
 
 //index.phpに直接アクセスしている場合は書換
 if(strpos($_SERVER["REQUEST_URI"],"index.php") !== false && isset($_GET['page'])) {
@@ -69,7 +76,6 @@ switch ($_GET['page']) {
 			header("Location: ".SITE_URL."timeline");
 			exit;
 		}
-		$smarty->assign("myName", $_SESSION['me']['name']);
 		$smarty->assign("name", $_GET['name']);
 		$smarty->assign("screen_name",getScreenNameByName($_GET['name'], $dbh));
 		$smarty->assign("profile",preg_replace('/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/', '<a href="\\1\\2" target="_blank">\\1\\2</a>', h(getProfileByName($_GET['name'], $dbh))));

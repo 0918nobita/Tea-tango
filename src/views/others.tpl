@@ -1,24 +1,25 @@
-﻿<!DOCTYPE html>
+﻿{include file="header.tpl"}
+{config_load file=$configFile section="others"}
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf8">
-<title>Tea-tango / その他</title>
+<title>{#othersPageTitle#}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <style>
 </style>
 </head>
 <body>
 <div id="titleBar">
-	その他
+	{#titleBar#}
 </div>
 <div id="main">
 	<ul>
-		<li><a href="change_language">言語</a></li>
-		<li><a href="profile_edit">プロフィール編集</a></li>
-		<li><a href="logout">ログアウト</a></li>
-		<li>Androidアプリ</li>
-		<li><a href="http://goo.gl/forms/MYgCnxFlca" target="_blank">お問い合わせ</a></li>
-		<li><a href="help">ヘルプ</a></li>
+		<li><a href="change_language">{#language#}</a></li>
+		<li><a href="profile_edit">{#editProfile#}</a></li>
+		<li><a href="logout">{#logout#}</a></li>
+		<li><a href="http://goo.gl/forms/MYgCnxFlca" target="_blank">{#inquiry#}</a></li>
+		<li><a href="help">{#help#}</a></li>
 	</ul>
 </div>
 </body>

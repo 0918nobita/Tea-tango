@@ -1,12 +1,13 @@
-﻿<!DOCTYPE html>
+﻿{include file="header.tpl"}
+{config_load file=$configFile section="about"}
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>効率的に暗記するならTea-tango！</title>
+<title>{#aboutPageTitle#}</title>
 </head>
 <body>
-{config_load file=$configFile section="about"}
 <div id="titleBar">
 	<!-- Tea-tangoをはじめよう -->
 	{#titleBar#}
