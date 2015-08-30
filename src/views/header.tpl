@@ -29,7 +29,7 @@
 	{if $login == "true"}
 		<a href="library"><p class="headerMenuButton"><i class='fa fa-star'></i><br />{#library#}</p></a>
 		<a href="timeline"><p class="headerMenuButton"><i class="fa fa-home"></i><br />{#timeline#}</p></a>
-		<a href="profile/{$myName}"><p class="headerMenuButton"><i class="fa fa-user"></i><br />{#profile#}</p>
+		<a href="{$myName}"><p class="headerMenuButton"><i class="fa fa-user"></i><br />{#profile#}</p>
 		<a href="others"><p class="headerMenuButton"><i class="fa fa-cog"></i><br />{#others#}</p></a>
 	{else}
 		<a href="signup"><p class="headerMenuButton"><i class="fa fa-sign-in"></i><br />{#signup#}</p></a>

@@ -15,7 +15,7 @@
 	{foreach from=$card_list item=array}
 		<div class="card">
 			<div class="card_author">
-				<a href="profile/{$array['author']}">{$array['author']}</a>
+				<a href="{$array['author']}">{$array['author']}</a>
 			</div>
 			<div class="card_contents">
 				{$array['front']}　=>　{$array['back']}
