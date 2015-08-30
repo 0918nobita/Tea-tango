@@ -23,7 +23,8 @@
 	<!-- 閲覧だけなら、会員登録は必要ありません -->
 	<h2>{#browseWithoutRegistering#}</h2>
 	<p></p>
-	<div id="letsstartButton"><a href="timeline" style="text-decoration: none;">さぁ、はじめよう</a></div>
+	<!-- さぁ、はじめよう -->
+	<div id="letsstartButton"><a href="timeline" style="text-decoration: none;">{#letsStart#}</a></div>
 </div>
 </body>
 </html>
