@@ -1,4 +1,3 @@
-{include file="header.tpl"}
 {config_load file=$configFile section="help"}
 <!DOCTYPE html>
 <html>
@@ -8,6 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
+{include file="header.tpl"}
 <div id="titleBar">
 	{#titleBar#}
 </div>
@@ -20,5 +20,6 @@
 	<h3>退会手続きについて</h3>
 	<p>既にアカウント登録が完了しログインしている方は<a href="secede.php">こちら</a>から退会ができます。</p>
 </div>
+{include file="footer.tpl"}
 </body>
 </html>
