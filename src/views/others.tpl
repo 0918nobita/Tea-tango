@@ -1,5 +1,4 @@
-﻿{include file="header.tpl"}
-{config_load file=$configFile section="others"}
+﻿{config_load file=$configFile section="others"}
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +9,7 @@
 </style>
 </head>
 <body>
+{include file="header.tpl"}
 <div id="titleBar">
 	{#titleBar#}
 </div>
@@ -22,5 +22,6 @@
 		<li><a href="help">{#help#}</a></li>
 	</ul>
 </div>
+{include file="footer.tpl"}
 </body>
 </html>
