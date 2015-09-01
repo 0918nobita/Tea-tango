@@ -91,14 +91,16 @@ switch ($_GET['page']) {
 		loginCheck("login");
 		$smarty->display("others.tpl");
 		break;
+	//エラー
+	case "error":
+		$smarty->display("error.tpl");
+		break;
 
 	default:
 		loginCheck("about");
 		header("Location: timeline");
 		break;
 }
-
-require_once __DIR__ . '/footer.php';
 
 ?>
 <!DOCTYPE html>

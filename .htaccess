@@ -13,6 +13,7 @@ RewriteRule ^about$ /src/index.php?page=about
 RewriteRule ^others$ /src/index.php?page=others
 RewriteRule ^profile_edit$ /src/profile-edit.php
 RewriteRule ^change_language$ /src/change-language.php
+RewriteRule ^error$ /src/index.php?page=error
 
 #上記以外でフォルダ名が指定されている場合のアクセス先(profile)
 RewriteRule ^(\w+)$ /src/index.php?page=profile&name=$1
@@ -20,4 +21,4 @@ RewriteRule ^(\w+)$ /src/index.php?page=profile&name=$1
 #デフォルトのアクセス先(現在は概要ページ(about)に飛ばすようにしてます)
 RewriteRule ^$ /src/index.php?page=about
 
-ErrorDocument 404 /src/error.php
+ErrorDocument 404 /error
