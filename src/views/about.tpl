@@ -1,5 +1,4 @@
-﻿{include file="header.tpl"}
-{config_load file=$configFile section="about"}
+﻿{config_load file=$configFile section="about"}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +7,7 @@
 <title>{#aboutPageTitle#}</title>
 </head>
 <body>
+{include file="header.tpl"}
 <div id="titleBar">
 	<!-- Tea-tangoをはじめよう -->
 	{#titleBar#}
@@ -27,5 +27,6 @@
 	<!-- さぁ、はじめよう -->
 	<div id="letsstartButton"><a href="timeline" style="text-decoration: none;">{#letsStart#}</a></div>
 </div>
+{include file="footer.tpl"}
 </body>
 </html>
