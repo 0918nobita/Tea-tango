@@ -1,0 +1,6 @@
+#Smarty
+libs/plugins
+libs/sysplugins
+libs/debug.tpl
+libs/Smarty.class.php
+libs/SmartyBC.class.php

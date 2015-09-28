@@ -1,0 +1,5 @@
+﻿Options FollowSymLinks
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(\w+)/(\w+)$ /Tea-tango/index.php?controller=$1&action=$2
