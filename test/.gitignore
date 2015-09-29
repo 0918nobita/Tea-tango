@@ -1,9 +1,9 @@
-#Smarty
+# Smarty
 libs/plugins
 libs/sysplugins
 libs/debug.tpl
 libs/Smarty.class.php
 libs/SmartyBC.class.php
 
-#定数SITE_URLの定義
+# 定数SITE_URLの定義
 config.php
