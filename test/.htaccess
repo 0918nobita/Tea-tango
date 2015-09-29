@@ -3,3 +3,8 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(\w+)/(\w+)$ /Tea-tango/index.php?controller=$1&action=$2
+
+ErrorDocument 401 /Tea-tango/error/display
+ErrorDocument 403 /Tea-tango/error/display
+ErrorDocument 404 /Tea-tango/error/display
+ErrorDocument 500 /Tea-tango/error/display
