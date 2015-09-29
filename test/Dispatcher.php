@@ -33,8 +33,9 @@ class Dispatcher
 			case 'others':
 				$controllerInstance = new OthersController();
 				break;
-			case 'profile':
-				$controllerInstance = new ProfileController();
+			case 'user':
+				require_once __DIR__ . '/controllers/UserController.php';
+				$controllerInstance = new UserController(SITE_URL);
 				break;
 			case 'timeline':
 				$controllerInstance = new TimelineController();
