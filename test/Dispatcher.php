@@ -1,5 +1,7 @@
 <?php
 
+require_once './config.php';
+
 class Dispatcher
 {
 	public function dispatch()
@@ -13,10 +15,11 @@ class Dispatcher
 		switch ($controller) {
 			case 'about':
 				require_once __DIR__ . '/controllers/AboutController.php';
-				$controllerInstance = new AboutController('http://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+				$controllerInstance = new AboutController(SITE_URL);
 				break;
 			case 'error':
-				$controllerInstance = new ErrorController();
+				require_once __DIR__ . '/controllers/ErrorController.php';
+				$controllerInstance = new ErrorController(SITE_URL);
 				break;
 			case 'help':
 				$controllerInstance = new HelpController();
