@@ -22,7 +22,8 @@ class Dispatcher
 				$controllerInstance = new ErrorController(SITE_URL);
 				break;
 			case 'help':
-				$controllerInstance = new HelpController();
+				require_once __DIR__ . '/controllers/HelpController.php';
+				$controllerInstance = new HelpController(SITE_URL);
 				break;
 			case 'library':
 				$controllerInstance = new LibraryContorller();
