@@ -6,6 +6,6 @@
 </head>
 <body>
 	<h1>Tea-tango</h1>
-	<p><a href="">新規登録</a>　<a href="">タイムライン</a>　<a href="">概要</a>　<a href="">ヘルプ</a></p>
+	<p><a href="">新規登録</a>　<a href="">ログイン</a>　<a href="">タイムライン</a>　<a href="">概要</a>　<a href="">ヘルプ</a></p>
 </body>
 </html>
