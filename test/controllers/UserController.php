@@ -7,10 +7,6 @@ class UserController
 	private $view;
 	private $url;
 
-	private $myId;
-	private $myName;
-	private $myProfile;
-
 	private $id;
 	private $name;
 	private $profile;
@@ -24,8 +20,6 @@ class UserController
 		$this->view->assign("url", $this->url);
 
 		// ログインしているのかチェックする
-
-		// ログインしていれば $myId, $myName, $myProfile に情報を書き込む
 	}
 
 	public function profileAction()
