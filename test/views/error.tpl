@@ -7,7 +7,7 @@
 <body>
 	{include file="header.tpl"}
 	<h2>エラーが発生しました</h2>
-	<p><a href="">ホーム</a>に戻る</p>
+	<p><a href="{$url}">ホーム</a>に戻る</p>
 	{include file="footer.tpl"}
 </body>
 </html>
