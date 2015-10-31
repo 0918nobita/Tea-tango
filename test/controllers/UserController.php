@@ -7,9 +7,7 @@ class UserController
 	private $view;
 	private $url;
 
-	private $id;
-	private $name;
-	private $profile;
+	private $user;
 
 	public function __construct($url)
 	{
