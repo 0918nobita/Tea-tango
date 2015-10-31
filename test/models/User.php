@@ -20,4 +20,13 @@ class UserModel
 		$this->db->execute();
 		return $this->db->fetchAll();
 	}
+	public function login($email, $password)
+	{
+		$user = $this->getUserByName($name);
+		
+		/*
+			$user['password']と、$passwordを暗号化したものとを比較して一致すれば
+			$userを$_SESSION['me']に代入してログイン完了
+		*/
+	}
 }
