@@ -2,23 +2,12 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^signup$ /src/signup.php
-RewriteRule ^login$ /src/login.php
-RewriteRule ^logout$ /src/controllers/logout.php
-#RewriteRule ^profile/(\w+)$ /src/index.php?page=profile&name=$1
-RewriteRule ^timeline$ /src/index.php?page=timeline
-RewriteRule ^library$ /src/index.php?page=library
-RewriteRule ^help$ /src/index.php?page=help
-RewriteRule ^about$ /src/index.php?page=about
-RewriteRule ^others$ /src/index.php?page=others
-RewriteRule ^profile_edit$ /src/profile-edit.php
-RewriteRule ^change_language$ /src/change-language.php
-RewriteRule ^error$ /src/index.php?page=error
+RewriteRule ^profile/(\w+)$ /Tea-tango/index.php?controller=user&action=profile&name=$1
+RewriteRule ^about$ /Tea-tango/index.php?controller=about&action=display
+RewriteRule ^help$ /Tea-tango/index.php?controller=help&action=display
+RewriteRule ^error$ /Tea-tango/index.php?controller=error&action=display
 
-#上記以外でフォルダ名が指定されている場合のアクセス先(profile)
-RewriteRule ^(\w+)$ /src/index.php?page=profile&name=$1
-
-#デフォルトのアクセス先(現在は概要ページ(about)に飛ばすようにしてます)
-RewriteRule ^$ /src/index.php?page=about
-
-ErrorDocument 404 /error
+ErrorDocument 401 /Tea-tango/error
+ErrorDocument 403 /Tea-tango/error
+ErrorDocument 404 /Tea-tango/error
+ErrorDocument 500 /Tea-tango/error

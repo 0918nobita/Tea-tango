@@ -1,8 +1,13 @@
-#config.phpには定数DSN, CONSUMER_KEY, CONSUMER_SECRET, SITE_URLの定義、PHPのエラー設定、Cookieの設定が含まれます
-src/config.php
+# Smarty
+libs/plugins
+libs/sysplugins
+libs/debug.tpl
+libs/Smarty.class.php
+libs/SmartyBC.class.php
+templates_c/
 
-#templetes_cフォルダにはSmartyがコンパイルして生成されたファイルが格納されます
-src/templates_c/
+# 定数SITE_URLの定義
+config.php
 
-#データベース
-src/models/tea-tango.db
+# 単語帳・単語カード・ユーザー情報を記録するデータベース
+models/tea-tango.db
