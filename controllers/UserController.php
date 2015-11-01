@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../libs/Smarty.class.php';
+require_once __DIR__ . '/../libs/Smarty.class.php';
 
 class UserController
 {
