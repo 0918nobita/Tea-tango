@@ -27,6 +27,19 @@ class UserModel
 		$this->db->execute();
 		return $this->db->fetchAll();
 	}
+	public function signup($name, $screenName, $profile, $email, $password)
+	{
+		$sql = "insert into user(name, screen_name, email, password)
+				values(:name, :screen_name, :email, :password)";
+		$stmt = $this->db->prepare($sql);
+		$params = array(
+			":name" => $name,
+			":screen_name" => $screen_name,
+			":email" => $email,
+			":password" => $password
+			);
+		$stmt->execute($params);
+	}
 	public function login($email, $password)
 	{
 		$user = $this->getUserByName($name);
