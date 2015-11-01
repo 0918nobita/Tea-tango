@@ -40,13 +40,24 @@ class UserModel
 			);
 		$stmt->execute($params);
 	}
-	public function login($email, $password)
+	public function login($emailOrEmail, $password)
 	{
-		$user = $this->getUserByName($name);
+		# $emailOrEmailがメールアドレスかどうかをチェックする
+		if (filter_var($emailOrEmail, FILTER_VALIDATE_EMAIL)) {
+			# メールアドレスでユーザー情報を取得
+			$user = $this->getUserByEmail($emailOrEmail);
+		} else {
+			# ユーザー名でユーザー情報を取得
+			$user = $this->getUserByName($emailOrEmail);
+		}
 		
 		/*
 			$user['password']と、$passwordを暗号化したものとを比較して一致すれば
 			$userを$_SESSION['me']に代入してログイン完了
 		*/
+
+		if ($password == $user['password']) {
+			$_SESSION['me'] = $user;
+		}		
 	}
 }
