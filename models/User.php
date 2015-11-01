@@ -20,6 +20,13 @@ class UserModel
 		$this->db->execute();
 		return $this->db->fetchAll();
 	}
+	public function getUserByEmail($email)
+	{
+		$this->db->prepare('select * from users where email = :email');
+		$this->db->bindValue(':email', $email, PDO::PARAM_STR);
+		$this->db->execute();
+		return $this->db->fetchAll();
+	}
 	public function login($email, $password)
 	{
 		$user = $this->getUserByName($name);
