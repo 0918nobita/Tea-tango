@@ -7,6 +7,7 @@
 <body>
 	{include file="header.tpl"}
 	<h2>{$screen_name}</h2>
+	<p>{$name}</p>
 	<p>{$profile}</p>
 	{include file="footer.tpl"}
 </body>
