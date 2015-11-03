@@ -56,8 +56,8 @@ class UserModel
 			$userを$_SESSION['me']に代入してログイン完了
 		*/
 
-		if ($password == $user['password']) {
+		if (hash_hmac("sha512", $password, HASH_SECRET_KEY) == $user['password']) {
 			$_SESSION['me'] = $user;
-		}		
+		}
 	}
 }
