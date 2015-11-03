@@ -4,6 +4,7 @@ require_once __DIR__ . '/../libs/Smarty.class.php';
 
 class UserController
 {
+	private $model;
 	private $view;
 	private $url;
 
@@ -17,7 +18,16 @@ class UserController
 		$this->url = $url;
 		$this->view->assign("url", $this->url);
 
+		require_once __DIR__ . '/../models/User.php';
+		$this->model = new UserModel();
+
 		// ログインしているのかチェックする
+		if (empty($_SESSION['me'])) {
+			$this->view->assign("login", "false"); 
+		} else {
+			$this->user = $_SESSION['me'];
+			$this->view->assign("login", "true");
+		}
 	}
 
 	public function profileAction()
