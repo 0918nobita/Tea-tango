@@ -15,10 +15,10 @@ class UserModel
 	}
 	public function getUserByName($name)
 	{
-		$this->db->prepare('select * from users where name = :name');
-		$this->db->bindValue(':name', $name, PDO::PARAM_STR);
-		$this->db->execute();
-		return $this->db->fetchAll();
+		$stmt = $this->db->prepare('select * from users where name = :name limit 1');
+		$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetchAll();
 	}
 	public function getUserByEmail($email)
 	{
