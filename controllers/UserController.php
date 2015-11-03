@@ -25,6 +25,9 @@ class UserController
 	public function profileAction()
 	{
 		$this->user = $this->model->getUserByName($_GET['name']);
+		if (empty($this->user)) {
+			header('Location: ' . SITE_URL . '/error');
+		}
 		$this->view->assign("screen_name", $this->user['screen_name']);
 		$this->view->assign("name", $this->user['name']);
 		$this->view->assign("profile", $this->user['profile']);
