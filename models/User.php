@@ -22,10 +22,10 @@ class UserModel
 	}
 	public function getUserByEmail($email)
 	{
-		$this->db->prepare('select * from users where email = :email');
-		$this->db->bindValue(':email', $email, PDO::PARAM_STR);
-		$this->db->execute();
-		return $this->db->fetchAll();
+		$stmt = $this->db->prepare('SELECT * FROM users WHERE email = :email LIMIT 1');
+		$stmt->bindValue(":email", $email, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	public function signup($name, $screenName, $profile, $email, $password)
 	{
