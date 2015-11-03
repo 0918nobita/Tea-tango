@@ -7,7 +7,7 @@ class UserModel
 	public function __construct()
 	{
 		try {
-			$this->db = new PDO('sqlite: tea-tango.db', '', '');
+			$this->db = new PDO(DSN, '', '');
 		} catch(PDOException $e) {
 			echo 'Error: '.$e->getMessage();
 			die();
@@ -15,10 +15,10 @@ class UserModel
 	}
 	public function getUserByName($name)
 	{
-		$stmt = $this->db->prepare('select * from users where name = :name limit 1');
-		$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+		$stmt = $this->db->prepare('SELECT * FROM users WHERE name = :name LIMIT 1');
+		$stmt->bindValue(":name", $name, PDO::PARAM_STR);
 		$stmt->execute();
-		return $stmt->fetchAll();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	public function getUserByEmail($email)
 	{
