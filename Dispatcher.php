@@ -28,6 +28,10 @@ class Dispatcher
 			case 'library':
 				$controllerInstance = new LibraryContorller();
 				break;
+			case 'wordbook':
+				require_once __DIR__ . '/controllers/WordbookController.php';
+				$controllerInstance = new WordbookController(SITE_URL);
+				break;
 			case 'logout':
 				$controllerInstance = new LogoutController();
 				break;
