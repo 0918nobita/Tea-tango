@@ -2,12 +2,12 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^profile/(\w+)$ /index.php?controller=user&action=profile&name=$1
-RewriteRule ^about$ /index.php?controller=about&action=display
-RewriteRule ^help$ /index.php?controller=help&action=display
-RewriteRule ^error$ /index.php?controller=error&action=display
+RewriteRule ^profile/(\w+)$ /ttan5/index.php?controller=user&action=profile&name=$1
+RewriteRule ^about$ /ttan5/index.php?controller=about&action=display
+RewriteRule ^help$ /ttan5/index.php?controller=help&action=display
+RewriteRule ^error$ /ttan5/index.php?controller=error&action=display
 
-ErrorDocument 401 /error
-ErrorDocument 403 /error
-ErrorDocument 404 /error
-ErrorDocument 500 /error
+ErrorDocument 401 /ttan5/error
+ErrorDocument 403 /ttan5/error
+ErrorDocument 404 /ttan5/error
+ErrorDocument 500 /ttan5/error
