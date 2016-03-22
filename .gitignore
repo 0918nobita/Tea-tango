@@ -1,3 +1,10 @@
+/.idea/
+/tmp/
+/bin/
+*.test
+*.swp
+*.iml
+
 # Smarty
 libs/plugins
 libs/sysplugins
