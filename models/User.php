@@ -27,32 +27,31 @@ class UserModel
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
-	public function signup($name, $screenName, $profile, $email, $password)
+	public function signUp($name, $screenName, $email, $password)
 	{
 		$sql = "insert into user(name, screen_name, email, password)
 				values(:name, :screen_name, :email, :password)";
 		$stmt = $this->db->prepare($sql);
-		$params = array(
+		$stmt->execute(array(
 			":name" => $name,
-			":screen_name" => $screen_name,
+			":screen_name" => $screenName,
 			":email" => $email,
 			":password" => $password
-			);
-		$stmt->execute($params);
+		));
 	}
-	public function login($emailOrEmail, $password)
+	public function login($userNameOrEmail, $password)
 	{
 		# $emailOrEmailがメールアドレスかどうかをチェックする
-		if (filter_var($emailOrEmail, FILTER_VALIDATE_EMAIL)) {
+		if (filter_var($userNameOrEmail, FILTER_VALIDATE_EMAIL)) {
 			# メールアドレスでユーザー情報を取得
-			$user = $this->getUserByEmail($emailOrEmail);
+			$user = $this->getUserByEmail($userNameOrEmail);
 		} else {
 			# ユーザー名でユーザー情報を取得
-			$user = $this->getUserByName($emailOrEmail);
+			$user = $this->getUserByName($userNameOrEmail);
 		}
 		
 		/*
-			$user['password']と、$passwordを暗号化したものとを比較して一致すれば
+			$user['password']をハッシュ化したものと、$passwordをハッシュ化したものとを比較して一致すれば
 			$userを$_SESSION['me']に代入してログイン完了
 		*/
 
